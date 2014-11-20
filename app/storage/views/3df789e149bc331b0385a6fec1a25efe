@@ -1,0 +1,66 @@
+<?php $__env->startSection('imageModal'); ?>
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModelLabel" aria-hidden="true">
+	<div class="modal-dialog butil-modal-lg">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class=image>
+							<?php echo HTML::image($plant[1][0]['image'], 'Plant', array('id="plantImage" height = "510"')); ?>		
+						</div>
+						<div class="view-choice">
+							<p>
+							<div class="btn-group">
+								<?php echo Form::button('Normal', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'Normal')")); ?>
+
+								<?php echo Form::button('Biomass', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'Biomass')")); ?>
+
+								<?php echo Form::button('Greenness', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'Greenness')")); ?>
+
+								<?php echo Form::button('Height', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'Height')")); ?>
+
+								<?php echo Form::button('Tillers', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'TillerCount')")); ?>
+
+						  </div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="butil-header">
+								<?php echo Form::button('<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>', array('class'=>'close', 'data-dismiss'=>'modal')); ?>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="butil-content">
+								<h4><b><?php echo $plant[0]['name']; ?></b></h4>
+								<h6><?php echo $plant[0]['dateplaced']; ?></h6>
+								<h6><?php echo $plant[1][0]['datetaken']; ?></h6>
+								Plant stage: <?php echo $plant[0]['stage']; ?><br>
+								Plant type: <?php echo $plant[0]['type']; ?><br>
+								<h5><b>Phenotypic Traits</b></h5>
+								Biomass: <?php echo $plant[1][0]['biomass']; ?><br>
+								Height: <?php echo $plant[1][0]['height']; ?><br>
+								Greenness: <?php echo $plant[1][0]['greenness']; ?><br>
+								Tiller Count: <?php echo $plant[1][0]['tillercount']; ?><br>
+							</div>
+						</div>
+						<div class="row">
+							<p>
+							<div class="butil-comment">
+								<h5><b>Comment</b>
+									<?php echo Form::button('<span class="glyphicon glyphicon-pencil"></span>'); ?></h5>
+								<div class="butil-comments">
+									This is my comment.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

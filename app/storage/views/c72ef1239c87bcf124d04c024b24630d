@@ -1,0 +1,43 @@
+ampp@extends('layout')
+
+<?php $__env->startSection('addPlantModal'); ?>
+<div class="modal fade" id="addPlantModal" tabindex="-1" role="dialog" aria-labelledby="addPlantLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Add Plant</h3>
+						<?php echo Form::open(array('url' => ' ', 'method' => 'post', 'class'=>'form-group')); ?>
+
+							<?php echo Form::label('name', 'Name'); ?>
+
+							<?php echo Form::input('text', 'Name', null, ['class'=>'form-control']); ?>
+
+							<?php echo Form::label('datePlaced', 'Date Placed'); ?>
+
+							<div>
+								<input id="date-input" type="text" type="text" class="form-control">
+							</div>
+							<?php echo Form::label('plantStage', 'Plant Stage'); ?>
+
+							<?php echo Form::input('text', 'Plant Stage', null, ['class'=>'form-control']); ?>
+
+							<?php echo Form::label('comment', 'Comment'); ?>
+
+							<textarea class="form-control" rows="3" name="comment"></textarea>
+							<p>
+							<?php echo Form::button("Cancel", array('href'=>'', 'class'=>'btn btn-default', 'data-dismiss'=>'modal')); ?>
+
+							<?php echo Form::button("Save", array('href'=>'', 'class'=>'btn btn-primary')); ?>
+
+						<?php echo Form::close(); ?>							
+								
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php $__env->stopSection(); ?>
