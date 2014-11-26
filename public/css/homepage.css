@@ -35,7 +35,8 @@ body > .header .logo {
     border: 1px solid black;
     border-collapse: collapse;
 }
-.table, .table th {
+.table,
+.table th {
     text-align: center;
 }
 .center {
@@ -44,9 +45,16 @@ body > .header .logo {
     margin-right: auto;
     width: 70%;
 }
-
-.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th{
+.btn-addplant {
+    font-weight: 700;
+}
+.table-hover>tbody>tr:hover>td,
+.table-hover>tbody>tr:hover>th {
     color: #fff;
     background-color: #339933;
-    cursor: pointer;    
+    cursor: pointer;
+}
+.plantinput tr td {
+    width: auto;
+    padding: 5px 5px;
 }

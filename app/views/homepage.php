@@ -85,13 +85,72 @@
         </nav>
     </header>
     <div class="content">
+
+        <!-- add plant modal -->
+
+        <div class="addplant modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Add Plant</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addPlantModal" method="POST">
+                            <table class="plantinput">
+                                <tbody>
+                                    <tr>
+                                        <td>Plant Name:</td>
+                                        <td>
+                                            <input type="text" id="" class="form-control input-medium" placeholder="Write plant name here...">
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>Date Placed:</td>
+                                        <td>
+                                            <input type="text" id="" class="form-control input-medium">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Plant Stage:</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                    Tillering
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tillering</a>
+                                                    </li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mid-Tillering</a>
+                                                    </li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Flowering</a>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end add plant modal -->
+
         <div class="btn-group pull-right">
             <a class="btn btn-default" href="#" id="listview" class=""><i class="fa fa-list"></i></a>
             <a class="btn btn-default" href="#" id="gridview" class="active"><i class="fa fa-square"></i></a>
         </div>
 
         <!-- Main content -->
-        <!-- Small boxes (Stat box) -->
+
         <div class="container center">
             <h2>
             Current Plants
@@ -114,13 +173,14 @@
                     }
                 </script>
             </div>
-            <label>
-                <input type="checkbox">
-            </label>
             <div class="listview">
                 <table class="table table-bordered table-hover table-condensed table-responsive">
                     <thead>
                         <tr>
+                            <th>
+                                <input type="checkbox">
+                            </th>
+                            <th>Camera</th>
                             <th>Plant Name</th>
                             <th>Date Last Phenotyped</th>
                             <th>Biomass (cm3)</th>
@@ -130,7 +190,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="clickableList" data-url="plant">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>1L</td>
                             <td>IR64-IRS007-006</td>
                             <td>2014-11-11</td>
                             <td>43</td>
@@ -138,7 +202,11 @@
                             <td>40.63</td>
                             <td>1</td>
                         </tr>
-                        <tr>
+                        <tr class="clickableList" data-url="plant">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>1R</td>
                             <td>Sample Plant 5</td>
                             <td>2014-10-18</td>
                             <td>45</td>
@@ -146,8 +214,8 @@
                             <td>51.12</td>
                             <td>17.40</td>
                         </tr>
-                        <tr>
-                            <td colspan="6">+Add Plant</td>
+                        <tr data-toggle="modal" data-target=".addplant">
+                            <td class="btn-addplant" colspan="8">+Add Plant</td>
                         </tr>
                     </tbody>
                 </table>
@@ -181,7 +249,6 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- add new calendar event modal -->
     <script>
         $('#listview').click(function () {
             $('.gridview').addClass("hidden");
@@ -195,6 +262,11 @@
             $('.gridview').removeClass("hidden");
             $(this).addClass("active");
             $('#listview').removeClass("active");
+        });
+
+         //clickable rows
+        $('.clickableList').click(function () {
+            window.document.location = $(this).data('url');
         });
     </script>
 </body>
