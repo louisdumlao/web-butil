@@ -28,3 +28,4 @@ $('#date-input input').datepicker({
     forceParse: false,
     todayHighlight: true
 });
+
