@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" href="#">Butil</a>
+                    <a class="navbar-brand" href="{{ URL::to('')}}">Butil</a>
                 </div>
                 <!-- Everything you want hidden at 940px or less, place within here -->
                 <div class="collapse navbar-collapse">
