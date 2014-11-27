@@ -16,6 +16,7 @@
 
 .butil-table-detail-data {
 	border-top: 0px !important;
+	text-align: left;
 }
 
 .tab-content {
@@ -34,4 +35,8 @@
 .butil-viewopt-button.active,{
 	-webkit-box-shadow: 0 0px 0px;
 			box-shadow: 0 0px 0px;
+}
+
+.body {
+	height: 100%;
 }

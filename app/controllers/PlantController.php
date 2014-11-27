@@ -40,7 +40,7 @@ class PlantController extends BaseController
 				)
 			)
 		);
-		
+		$this->layout->navbar = View::make('navbar', $data);
 		$this->layout->content = View::make('plantView', $data);
 		$this->layout->imageModal = View::make('imageModal', $data);
 		$this->layout->settings = View::make('settings', $data);
