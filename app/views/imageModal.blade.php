@@ -13,17 +13,12 @@
 						<div class="view-choice">
 							<p>
 							<div class="btn-group">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Normal.png" name="image" width="60" height="60">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Biomass2.png" name="image" width="60" height="60">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Greenness2.png" name="image" width="60" height="60">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Height2.png" name="image" width="60" height="60">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Tiller.png" name="image" width="60" height="60">
-								
-								{{ Form::button('Normal', array('class'=>'btn btn-default btn-sm butil-viewopt butil-viewopt-normal', 'onclick'=>"changeImage('C41234567890', 'Normal')")) }}
-								{{ Form::button('Biomass', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'Biomass')")) }}
-								{{ Form::button('Greenness', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'Greenness')")) }}
-								{{ Form::button('Height', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'Height')")) }}
-								{{ Form::button('Tillers', array('class'=>'btn btn-default btn-sm', 'onclick'=>"changeImage('C41234567890', 'TillerCount')")) }}
+								<input class="butil-viewopt-button" type="image" src="/web-butil/public/assets/images/buttons/Normal3.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'Normal')">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Biomass3.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'Biomass')">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Greenness2.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'Greenness')">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Height2.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'Height')">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Tiller2.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'TillerCount')">
+
 						  </div>
 						</div>
 					</div>
@@ -48,7 +43,20 @@
 									</tr>
 									<tr>
 										<td class="butil-table-detail-data"><b>Plant stage:</b></td>
-										<td class="butil-table-detail-data">{{ $plant[0]['stage'] }}</td>
+										<td class="butil-table-detail-data"><div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                    Tillering
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tillering</a>
+                                                    </li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mid-Tillering</a>
+                                                    </li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Flowering</a>
+                                                </ul>
+                                            </div>
+										</td>
 									</tr>
 									<tr>
 										<td class="butil-table-detail-data"><b>Biomass:</b></td>

@@ -1,4 +1,4 @@
-ampp@extends('layout')
+@extends('layout')
 
 @section('addPlantModal')
 <div class="modal fade" id="addPlantModal" tabindex="-1" role="dialog" aria-labelledby="addPlantLabel" aria-hidden="true">
