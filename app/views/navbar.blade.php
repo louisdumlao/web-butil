@@ -40,29 +40,6 @@
 						<li class="footer"><a href="#">Edit Capture Appointment</a></li>
 					</ul>
 				</li>
-				<li class="dropdown notifications-menu">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="glyphicon glyphicon-cog"></i>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<!-- inner menu: contains the actual data -->
-							<ul class="menu">
-								<li>
-									<a href="#">
-										<i class="ion ion-ios7-people info"></i> 5 new members joined today
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
-									</a>
-								</li>
-							</ul>
-						</li>
-						<li class="footer"><a href="#">View all</a></li>
-					</ul>
-				</li>
 				</li>
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">

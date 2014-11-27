@@ -44,7 +44,7 @@
 									<tr>
 										<td class="butil-table-detail-data"><b>Plant stage:</b></td>
 										<td class="butil-table-detail-data"><div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                <button class="btn btn-default dropdown-toggle butil-table-detail-data-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                                                     Tillering
                                                     <span class="caret"></span>
                                                 </button>

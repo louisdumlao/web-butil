@@ -16,16 +16,8 @@ function getPlantDetails() {
 
 
 $('#summaryTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
+  e.preventDefault();
+  $(this).tab('show');
 });
 
-
-$('#date-input input').datepicker({
-    format: "mm/dd/yyyy",
-    weekStart: 0,
-    todayBtn: true,
-    forceParse: false,
-    todayHighlight: true
-});
 
