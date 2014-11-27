@@ -1,6 +1,42 @@
 .butil-modal-lg {
-	width: 750px;
+	width: 900px;
 }
+
+.butil-detail {
+	padding-right: 30px;
+}
+
 .butil-header {
 	padding-right: 15px;
+}
+
+.butil-table-detail {
+	border: none;
+}
+
+.butil-table-detail-data {
+	border-top: 0px !important;
+}
+
+.tab-content {
+	border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.butil-table-history {
+	border: 1px solid #ccc;
+}
+
+.butil-viewopt {
+    background-color: transparent; /* make the button transparent */
+    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-position: 0px 0px;  /* equivalent to 'top left' */
+    border: none;           /* assuming we don't want any borders */
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    vertical-align: middle; /* align the text vertically centered */
+
+}
+
+.butil-viewopt-normal {
+	background-image: url(/public/assets/images/buttons/normal.png);
 }

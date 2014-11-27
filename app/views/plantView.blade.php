@@ -22,15 +22,12 @@
 			<h3>{{ $plant[0]['name'] }}</h3>
 			Date placed: {{ $plant[0]['dateplaced'] }}<br>
 			Plant Stage: {{ $plant[0]['stage'] }}<br>
-			Plant Type: {{ $plant[0]['type'] }}
-			<br><br>
-			
-			<h4>Comment</h4>
-			{{ $plant[0]['comments'] }}
+			<br>
+			<br>
 		</div>
 		<div class="history-graph">
 			<ul class="nav nav-tabs" id="summaryTab">
-				<li class="active"><a href="#history">History</a></li>
+				<li class="active"><a href="#history">Table</a></li>
 				<li><a href="#graph">Graph</a></li>
 			</ul>
 
