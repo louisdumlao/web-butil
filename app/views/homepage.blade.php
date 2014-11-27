@@ -91,24 +91,25 @@
         <div class="addplant modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    {{ Form::open(array('id'=> 'addPlantModal', 'route' => 'addPlant', 'role' => 'form'))}}
                     <div class="modal-header">
                         <h3 class="modal-title">Add Plant</h3>
                     </div>
                     <div class="modal-body">
-                        <form id="addPlantModal" method="POST">
+                        
                             <table class="plantinput">
                                 <tbody>
                                     <tr>
                                         <td>Plant Name:</td>
                                         <td>
-                                            <input type="text" id="" class="form-control input-medium" placeholder="Write plant name here...">
+                                            <input type="text" name="Plant_Name" class="form-control input-medium" placeholder="Write plant name here...">
                                         </td>
                                     </tr>
                                     <tr>
 
                                         <td>Date Placed:</td>
                                         <td>
-                                            <input type="text" id="" class="form-control input-medium">
+                                            <input type="text" name="Date_Placed" class="form-control input-medium">
                                         </td>
                                     </tr>
                                     <tr>
@@ -116,7 +117,12 @@
                                             Plant Stage:</td>
                                         <td>
                                             <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                <select class="btn btn-default dropdown-toggle" name="Plant_Stage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                  <option value="Tillering">Tillering</option>
+                                                  <option value="Mid-Tillering">Mid-Tillering</option>
+                                                  <option value="Flowering">Flowering</option>
+                                                </select>
+                                                <!-- <button class="btn btn-default dropdown-toggle" name="Plant_Stage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                                                     Tillering
                                                     <span class="caret"></span>
                                                 </button>
@@ -126,7 +132,7 @@
                                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mid-Tillering</a>
                                                     </li>
                                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Flowering</a>
-                                                </ul>
+                                                </ul> -->
                                             </div>
                                         </td>
                                     </tr>
@@ -134,11 +140,19 @@
                                         <td>Camera:</td>
                                         <td>
                                             <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                <select class="btn btn-default dropdown-toggle" type="button" name="Camera_ID_Side" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                                                  <option value="1L">1L</option>
+                                                  <option value="1R">1R</option>
+                                                  <option value="2L">2L</option>
+                                                  <option value="2R">2R</option>
+                                                  <option value="3L">3L</option>
+                                                  <option value="3R">3R</option>
+                                                </select>
+                                                <!-- <button class="btn btn-default dropdown-toggle" type="button" name="Camera_ID_Side" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
                                                     Select Camera
                                                     <span class="caret"></span>
                                                 </button>
-                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
                                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1L</a>
                                                     </li>
                                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1R</a>
@@ -147,18 +161,23 @@
                                                     </li>
                                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2R</a>
                                                     </li>
-                                                </ul>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">3L</a>
+                                                    </li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">3R</a>
+                                                    </li>
+                                                </ul> -->
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </form>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </div>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
@@ -213,30 +232,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="clickableList" data-url="plant">
-                            <td>
-                                <input type="checkbox" class="currPlantRowSelect">
-                            </td>
-                            <td>1L</td>
-                            <td>IR64-IRS007-006</td>
-                            <td>2014-11-11</td>
-                            <td>43</td>
-                            <td>Between 3 and 4</td>
-                            <td>40.63</td>
-                            <td>1</td>
-                        </tr>
-                        <tr class="clickableList" data-url="plant">
-                            <td>
-                                <input type="checkbox" class="currPlantRowSelect">
-                            </td>
-                            <td>1R</td>
-                            <td>Sample Plant 5</td>
-                            <td>2014-10-18</td>
-                            <td>45</td>
-                            <td>3</td>
-                            <td>51.12</td>
-                            <td>17.40</td>
-                        </tr>
+                        @foreach($plants as $plant)
+                            @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() != null)
+                                <tr class="clickableList" data-url="plant/{{{$plant->ID}}}">
+                                    <td>
+                                        <input type="checkbox" class="currPlantRowSelect">
+                                    </td>
+                                    <td>
+                                        @if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null)
+                                            {{{$camera->ID.'L'}}}
+                                        @elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null)
+                                            {{{$camera->ID.'R'}}}
+                                        @endif
+                                    </td>
+                                    <td>{{{$plant->Plant_Name}}}</td>
+                                    <?php 
+                                    $lastImage = Image::where('Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first();
+                                    ?>
+                                    @if($lastImage != null)
+                                    <?php $lastPheno = PhenotypicData::where('Image_ID', $lastImage->ID)->first();?>
+                                    <td>{{{$lastImage->Date_Taken}}}</td>
+                                    <td>{{{$lastPheno->Biomass}}}</td>
+                                    <td>{{{$lastPheno->Greenness}}}</td>
+                                    <td>{{{$lastPheno->Height}}}</td>
+                                    <td>{{{$lastPheno->Tiller_Count}}}</td>
+                                    @else
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    @endif
+                                </tr>
+                             @endif
+                        @endforeach
                         <tr data-toggle="modal" data-target=".addplant">
                             <td class="btn-addplant" colspan="8">+ Add Plant</td>
                         </tr>
@@ -285,54 +314,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="clickableList" data-url="plant">
-                        <td>
-                            <input type="checkbox" class="archPlantRowSelect">
-                        </td>
-                        <td>1L</td>
-                        <td>IR64-C-IRS001-001</td>
-                        <td>2014-08-02</td>
-                        <td>24</td>
-                        <td>Between 3 and 4</td>
-                        <td>46.50</td>
-                        <td>15.50</td>
-                    </tr>
-                    <tr class="clickableList" data-url="plant">
-                        <td>
-                            <input type="checkbox" class="archPlantRowSelect">
-                        </td>
-                        <td>1R</td>
-                        <td>Sample Plant 2</td>
-                        <td>2014-06-18</td>
-                        <td>45</td>
-                        <td>3</td>
-                        <td>21.40</td>
-                        <td>58.16</td>
-                    </tr>
-                    <tr class="clickableList" data-url="plant">
-                        <td>
-                            <input type="checkbox" class="archPlantRowSelect">
-                        </td>
-                        <td>2L</td>
-                        <td>Sample Plant 3</td>
-                        <td>2013-01-12</td>
-                        <td>38</td>
-                        <td>Between 2 and 3</td>
-                        <td>61.24</td>
-                        <td>16.32</td>
-                    </tr>
-                    <tr class="clickableList" data-url="plant">
-                        <td>
-                            <input type="checkbox" class="archPlantRowSelect">
-                        </td>
-                        <td>3R</td>
-                        <td>Sample Plant 4</td>
-                        <td>2011-06-16</td>
-                        <td>41.2</td>
-                        <td>2</td>
-                        <td>28.14</td>
-                        <td>13.22</td>
-                    </tr>
+                    @foreach($plants as $plant)
+                        @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() == null)
+                            <tr class="clickableList" data-url="plant/{{{$plant->ID}}}">
+                                <td>
+                                    <input type="checkbox" class="currPlantRowSelect">
+                                </td>
+                                <td>
+                                    @if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null)
+                                        {{{$camera->ID.'L'}}}
+                                    @elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null)
+                                        {{{$camera->ID.'R'}}}
+                                    @endif
+                                </td>
+                                <td>{{{$plant->Plant_Name}}}</td>
+                                <?php 
+                                $lastImage = Image::where('Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first();
+                                ?>
+                                @if($lastImage != null)
+                                <?php $lastPheno = PhenotypicData::where('Image_ID', $lastImage->ID)->first();?>
+                                <td>{{{$lastImage->Date_Taken}}}</td>
+                                <td>{{{$lastPheno->Biomass}}}</td>
+                                <td>{{{$lastPheno->Greenness}}}</td>
+                                <td>{{{$lastPheno->Height}}}</td>
+                                <td>{{{$lastPheno->Tiller_Count}}}</td>
+                                @else
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                @endif
+                            </tr>
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>

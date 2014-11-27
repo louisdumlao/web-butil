@@ -6,8 +6,6 @@ class ImageTableSeeder extends Seeder {
     {
         $lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra lacus quis massa convallis pellentesque. Integer malesuada bibendum ornare. Quisque tincidunt rutrum ligula vitae rutrum.';
 
-        DB::table('image')->delete();
-
         Image::create(array(
             'ID' => 1,
         	'Plant_ID' => 1,
@@ -18,7 +16,7 @@ class ImageTableSeeder extends Seeder {
             'Processed_Height_Path' => 'assets/images/C41234567890-Height.JPG',
             'Processed_Tiller_Path' => 'assets/images/C41234567890-TillerCount.JPG',
             'Processed_Biomass_Path' => 'assets/images/C41234567890-Biomass.JPG',
-            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greeness.JPG',
+            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greenness.JPG',
         	));
 
         Image::create(array(
@@ -31,7 +29,7 @@ class ImageTableSeeder extends Seeder {
             'Processed_Height_Path' => 'assets/images/C41234567890-Height.JPG',
             'Processed_Tiller_Path' => 'assets/images/C41234567890-TillerCount.JPG',
             'Processed_Biomass_Path' => 'assets/images/C41234567890-Biomass.JPG',
-            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greeness.JPG',
+            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greenness.JPG',
             ));
 
         Image::create(array(
@@ -44,7 +42,7 @@ class ImageTableSeeder extends Seeder {
             'Processed_Height_Path' => 'assets/images/C41234567890-Height.JPG',
             'Processed_Tiller_Path' => 'assets/images/C41234567890-TillerCount.JPG',
             'Processed_Biomass_Path' => 'assets/images/C41234567890-Biomass.JPG',
-            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greeness.JPG',
+            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greenness.JPG',
             ));
 
         Image::create(array(
@@ -57,7 +55,7 @@ class ImageTableSeeder extends Seeder {
             'Processed_Height_Path' => 'assets/images/C41234567890-Height.JPG',
             'Processed_Tiller_Path' => 'assets/images/C41234567890-TillerCount.JPG',
             'Processed_Biomass_Path' => 'assets/images/C41234567890-Biomass.JPG',
-            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greeness.JPG',
+            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greenness.JPG',
             ));
 
         Image::create(array(
@@ -70,7 +68,7 @@ class ImageTableSeeder extends Seeder {
             'Processed_Height_Path' => 'assets/images/C41234567890-Height.JPG',
             'Processed_Tiller_Path' => 'assets/images/C41234567890-TillerCount.JPG',
             'Processed_Biomass_Path' => 'assets/images/C41234567890-Biomass.JPG',
-            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greeness.JPG',
+            'Processed_Greenness_Path' => 'assets/images/C41234567890-Greenness.JPG',
             ));
     }
 

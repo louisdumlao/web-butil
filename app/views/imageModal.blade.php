@@ -1,23 +1,24 @@
 @extends('layout')
 
 @section('imageModal')
-<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModelLabel" aria-hidden="true">
+@foreach($plant->images()->get() as $image)
+<div class="modal fade" id="imageModal{{{$image->ID}}}" tabindex="-1" role="dialog" aria-labelledby="imageModelLabel" aria-hidden="true">
 	<div class="modal-dialog butil-modal-lg">
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-5">
 						<div class=image>
-							{{ HTML::image($plant[1][0]['image'], 'Plant', array('id="plantImage" height = "510"'))}}		
+							{{ HTML::image($image->Raw_Path, 'Plant', array('id' => 'plantImage'.$image->ID, 'height = 510')) }}		
 						</div>
 						<div class="view-choice">
 							<p>
 							<div class="btn-group">
-								<input class="butil-viewopt-button" type="image" src="/web-butil/public/assets/images/buttons/Normal3.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'Normal')">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Biomass3.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'Biomass')">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Greenness2.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'Greenness')">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Height2.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'Height')">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Tiller2.png" name="image" width="60" height="60" onclick="changeImage('C41234567890', 'TillerCount')">
+								<input class="butil-viewopt-button" type="image" src="/web-butil/public/assets/images/buttons/Normal3.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Raw_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Biomass3.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Biomass_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Greenness2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Greenness_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Height2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Height_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Tiller2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Tiller_Path}}}', '{{{'plantImage'.$image->ID}}}')">
 
 						  </div>
 						</div>
@@ -30,22 +31,22 @@
 						</div>
 						<div class="row butil-detail">
 							<div class="butil-content">
-								<h4><b>{{ $plant[0]['name'] }}</b></h4>
+								<h4><b>{{ $image->plant->Plant_Name }}</b></h4>
 								<table class="table table-condensed butil-table-detail">
 								<tbody>
 									<tr>
 										<td class="butil-table-detail-data"><b>Date Placed:</b></td>
-										<td class="butil-table-detail-data">{{ $plant[0]['dateplaced'] }}</td>
+										<td class="butil-table-detail-data">{{ $image->plant->Date_Placed }}</td>
 									</tr>
 									<tr>
 										<td class="butil-table-detail-data"><b>Date Phenotyped:</b></td>
-										<td class="butil-table-detail-data">{{ $plant[1][0]['datetaken'] }}</td>
+										<td class="butil-table-detail-data">{{ $image->Date_Taken }}</td>
 									</tr>
 									<tr>
 										<td class="butil-table-detail-data"><b>Plant stage:</b></td>
 										<td class="butil-table-detail-data"><div class="dropdown">
                                                 <button class="btn btn-default dropdown-toggle butil-table-detail-data-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                    Tillering
+                                                    {{{$image->Plant_Stage}}}
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -60,19 +61,19 @@
 									</tr>
 									<tr>
 										<td class="butil-table-detail-data"><b>Biomass:</b></td>
-										<td class="butil-table-detail-data">{{ $plant[1][0]['biomass'] }}</td>
+										<td class="butil-table-detail-data">{{{ $image->phenotypicData->Biomass }}}</td>
 									</tr>
 									<tr>
 										<td class="butil-table-detail-data"><b>Height:</b></td>
-										<td class="butil-table-detail-data">{{ $plant[1][0]['height'] }}</td>
+										<td class="butil-table-detail-data">{{{ $image->phenotypicData->Height }}}</td>
 									</tr>
 									<tr>
 										<td class="butil-table-detail-data"><b>Greenness:</b></td>
-										<td class="butil-table-detail-data">{{ $plant[1][0]['greenness'] }}</td>
+										<td class="butil-table-detail-data">{{{ $image->phenotypicData->Greenness }}}</td>
 									</tr>
 									<tr>
 										<td class="butil-table-detail-data"><b>Tiller Count:</b></td>
-										<td class="butil-table-detail-data">{{ $plant[1][0]['tillercount'] }}</td>
+										<td class="butil-table-detail-data">{{{ $image->phenotypicData->Tiller_Count }}}</td>
 									</tr>
 								</tbody>
 								</table>
@@ -84,7 +85,7 @@
 								<h5><b>Comments</b>
 									{{ Form::button('<span class="glyphicon glyphicon-pencil"></span>') }}</h5>
 								<div class="butil-comments">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra lacus quis massa convallis pellentesque. Integer malesuada bibendum ornare. Quisque tincidunt rutrum ligula vitae rutrum. Pellentesque vehicula urna quis consequat fringilla. Cras vehicula scelerisque condimentum. Mauris consectetur diam sed ligula lobortis, et laoreet magna interdum.
+									{{{$image->Comments}}}
 								</div>
 							</div>
 						</div>
@@ -94,5 +95,5 @@
 		</div>
 	</div>
 </div>
-
+@endforeach
 @stop

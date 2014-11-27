@@ -6,6 +6,8 @@ class CameraAppointment extends Eloquent {
 	public $timestamps = false;
 	protected $softDelete = true;
 	
+	protected $primaryKey = 'ID';
+	
 	protected $fillable = array('Date_Taken', 'Camera_ID', 'Interval');
 	
 	public function camera(){

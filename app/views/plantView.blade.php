@@ -19,9 +19,9 @@
 			</div>
 		</div>
 		<div class="plant-details">
-			<h3>{{ $plant[0]['name'] }}</h3>
-			Date placed: {{ $plant[0]['dateplaced'] }}<br>
-			Plant Stage: {{ $plant[0]['stage'] }}<br>
+			<h3>{{{ $plant->Plant_Name }}}</h3>
+			Date placed: {{{ $plant->Date_Placed }}}<br>
+			Plant Stage: {{{ $plant->Plant_Stage }}}<br>
 			<br>
 			<br>
 		</div>

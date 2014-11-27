@@ -4,7 +4,6 @@ class PlantTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('plant')->delete();
 
         Plant::create(array(
         	'ID' => 1,
