@@ -3,6 +3,7 @@
 class Plant extends Eloquent {
 
 	protected $table = 'plant';
+	public $timestamps = false;
 	protected $softDelete = true;
 
 	protected $fillable = array('Plant_Name', 'Date_Placed', 'Plant_Stage','Plant_Type', 'Comments');

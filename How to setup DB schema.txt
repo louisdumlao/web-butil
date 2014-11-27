@@ -11,3 +11,5 @@ Make sure first there is a database named 'butil' in mysql
 4. Repeat 2 and 3 if the schema is updated
 
 *Type 'php artisan migrate:rollback' to return schema to previous version (in case lng)
+
+*Type 'php artisan db:seed' to populate db with pre-made dummy data

@@ -3,6 +3,7 @@
 class Image extends Eloquent {
 
 	protected $table = 'image';
+	public $timestamps = false;
 	protected $softDelete = true;
 	
 	//NOTE: Remove 'Plant Type'

@@ -3,6 +3,7 @@
 class PhenotypicData extends Eloquent {
 
 	protected $table = 'phenotypic_data';
+	public $timestamps = false;
 	protected $softDelete = true;
 	
 	//NOTE: Remove 'Plant Type'

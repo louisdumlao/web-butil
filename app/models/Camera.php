@@ -3,6 +3,7 @@
 class Camera extends Eloquent {
 
 	protected $table = 'camera';
+	public $timestamps = false;
 
 	protected $fillable = array('Current_Left_Plant_ID', 'Current_Right_Plant_ID');
 	
