@@ -154,7 +154,7 @@
         <div class="container center">
             <span class="table-header">
             Current Plants
-            <button type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-right"></i> Move</button>
+            <button type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-down"></i> Move</button>
             <button type="button" class="btn btn-default disabled"><i class="fa fa-trash"></i> Delete</button>
             </span>
             <div class="gridview hidden">
@@ -225,7 +225,11 @@
         </div>
         <!-- /.row -->
         <div class="container center">
-            <h3>Archived Plants</h3>
+            <span class="table-header">
+            Archived Plants
+            <button type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-up"></i> Move</button>
+            <button type="button" class="btn btn-default disabled"><i class="fa fa-trash"></i> Delete</button>
+            </span>
             <div class="gridview hidden">
                 <script>
                     for (i = 1; i <= 6; i++) {

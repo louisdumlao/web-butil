@@ -31,6 +31,13 @@ body > .header .logo {
     height: auto;
 }
 
+.table-bordered-out {
+    
+    border: 1px;
+    border-color: #ccc;
+    border-collapse: collapse;
+}
+
 .table thead {
     background-color: #ccc;
 }
