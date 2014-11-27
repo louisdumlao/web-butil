@@ -14,9 +14,9 @@
 							<p>
 							<div class="btn-group">
 								<input type="image" src="/web-butil/public/assets/images/buttons/Normal.png" name="image" width="60" height="60">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Biomass.png" name="image" width="60" height="60">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Greenness.png" name="image" width="60" height="60">
-								<input type="image" src="/web-butil/public/assets/images/buttons/Height.png" name="image" width="60" height="60">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Biomass2.png" name="image" width="60" height="60">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Greenness2.png" name="image" width="60" height="60">
+								<input type="image" src="/web-butil/public/assets/images/buttons/Height2.png" name="image" width="60" height="60">
 								<input type="image" src="/web-butil/public/assets/images/buttons/Tiller.png" name="image" width="60" height="60">
 								
 								{{ Form::button('Normal', array('class'=>'btn btn-default btn-sm butil-viewopt butil-viewopt-normal', 'onclick'=>"changeImage('C41234567890', 'Normal')")) }}
