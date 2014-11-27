@@ -130,6 +130,27 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>Camera:</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                    Select Camera
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1L</a>
+                                                    </li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1R</a>
+                                                    </li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2L</a>
+                                                    </li>
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2R</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </form>
@@ -147,15 +168,15 @@
         <!-- grid/list view control -->
         <div class="btn-group pull-right">
             <a class="btn btn-default" href="#" id="listview" class=""><i class="fa fa-list"></i></a>
-            <a class="btn btn-default" href="#" id="gridview" class="active"><i class="fa fa-square"></i></a>
+            <a class="btn btn-default" href="#" id="gridview" class="active"><i class="fa fa-image"></i></a>
         </div>
 
         <!-- Main content -->
         <div class="container center">
             <span class="table-header">
             Current Plants
-            <button type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-down"></i> Move</button>
-            <button type="button" class="btn btn-default disabled"><i class="fa fa-trash"></i> Delete</button>
+            <button type="button" class="btn btn-default disabled btn-curr"><i class="fa fa-arrow-circle-down"></i> Move</button>
+            <button type="button" class="btn btn-default disabled btn-curr"><i class="fa fa-trash"></i> Delete</button>
             </span>
             <div class="gridview hidden">
                 <script>
@@ -180,7 +201,7 @@
                     <thead>
                         <tr>
                             <th>
-                                <input type="checkbox" id="addSelectAll">
+                                <input type="checkbox" id="currPlantSelectAll">
                             </th>
                             <th>Camera</th>
                             <th>Plant Name</th>
@@ -194,7 +215,7 @@
                     <tbody>
                         <tr class="clickableList" data-url="plant">
                             <td>
-                                <input type="checkbox" class="addRowSelect">
+                                <input type="checkbox" class="currPlantRowSelect">
                             </td>
                             <td>1L</td>
                             <td>IR64-IRS007-006</td>
@@ -206,7 +227,7 @@
                         </tr>
                         <tr class="clickableList" data-url="plant">
                             <td>
-                                <input type="checkbox" class="addRowSelect">
+                                <input type="checkbox" class="currPlantRowSelect">
                             </td>
                             <td>1R</td>
                             <td>Sample Plant 5</td>
@@ -227,8 +248,8 @@
         <div class="container center">
             <span class="table-header">
             Archived Plants
-            <button type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-up"></i> Move</button>
-            <button type="button" class="btn btn-default disabled"><i class="fa fa-trash"></i> Delete</button>
+            <button type="button" class="btn btn-default disabled btn-arch"><i class="fa fa-arrow-circle-up"></i> Move</button>
+            <button type="button" class="btn btn-default disabled btn-arch"><i class="fa fa-trash"></i> Delete</button>
             </span>
             <div class="gridview hidden">
                 <script>
@@ -248,7 +269,72 @@
                     }
                 </script>
             </div>
-
+            <table class="table table-bordered table-hover table-condensed table-responsive">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="archPlantSelectAll">
+                        </th>
+                        <th>Camera</th>
+                        <th>Plant Name</th>
+                        <th>Date Last Phenotyped</th>
+                        <th>Biomass (cm3)</th>
+                        <th>Greenness</th>
+                        <th>Height</th>
+                        <th>Tiller Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="clickableList" data-url="plant">
+                        <td>
+                            <input type="checkbox" class="archPlantRowSelect">
+                        </td>
+                        <td>1L</td>
+                        <td>IR64-C-IRS001-001</td>
+                        <td>2014-08-02</td>
+                        <td>24</td>
+                        <td>Between 3 and 4</td>
+                        <td>46.50</td>
+                        <td>15.50</td>
+                    </tr>
+                    <tr class="clickableList" data-url="plant">
+                        <td>
+                            <input type="checkbox" class="archPlantRowSelect">
+                        </td>
+                        <td>1R</td>
+                        <td>Sample Plant 2</td>
+                        <td>2014-06-18</td>
+                        <td>45</td>
+                        <td>3</td>
+                        <td>21.40</td>
+                        <td>58.16</td>
+                    </tr>
+                    <tr class="clickableList" data-url="plant">
+                        <td>
+                            <input type="checkbox" class="archPlantRowSelect">
+                        </td>
+                        <td>2L</td>
+                        <td>Sample Plant 3</td>
+                        <td>2013-01-12</td>
+                        <td>38</td>
+                        <td>Between 2 and 3</td>
+                        <td>61.24</td>
+                        <td>16.32</td>
+                    </tr>
+                    <tr class="clickableList" data-url="plant">
+                        <td>
+                            <input type="checkbox" class="archPlantRowSelect">
+                        </td>
+                        <td>3R</td>
+                        <td>Sample Plant 4</td>
+                        <td>2011-06-16</td>
+                        <td>41.2</td>
+                        <td>2</td>
+                        <td>28.14</td>
+                        <td>13.22</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <!-- ./wrapper -->
@@ -273,11 +359,35 @@
             window.document.location = $(this).data('url');
         });
 
-        $('#addSelectAll').click(function () {
+        $('#currPlantSelectAll').click(function () {
             if ($(this).is(':checked')) {
-                $('.addRowSelect').prop('checked', true);
+                $('.currPlantRowSelect').prop('checked', true);
             } else {
-                $('.addRowSelect').prop('checked', false);
+                $('.currPlantRowSelect').prop('checked', false);
+            }
+        });
+
+        $('#archPlantSelectAll').click(function () {
+            if ($(this).is(':checked')) {
+                $('.archPlantRowSelect').prop('checked', true);
+            } else {
+                $('.archPlantRowSelect').prop('checked', false);
+            }
+        });
+
+        $('input[type=checkbox]').click(function () {
+            var currCheck = $('input[class=currPlantRowSelect]:checked').length > 0;
+            var archCheck = $('input[class=archPlantRowSelect]:checked').length > 0;
+            if (currCheck) {
+                $('.btn-curr').removeClass("disabled");
+            } else {
+                $('.btn-curr').addClass("disabled");
+            }
+            if (archCheck) {
+                $('.btn-arch').removeClass("disabled");
+            } else {
+                $('.btn-arch').addClass("disabled");
+
             }
         });
     </script>
