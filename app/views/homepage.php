@@ -25,7 +25,7 @@
     <!-- Bootstrap -->
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <!-- AdminLTE App -->
-    <script src="js/AdminLTE/app.js" type="text/javascript"></script>
+
     <title>Butil</title>
 </head>
 
@@ -144,17 +144,19 @@
 
         <!-- end add plant modal -->
 
+        <!-- grid/list view control -->
         <div class="btn-group pull-right">
             <a class="btn btn-default" href="#" id="listview" class=""><i class="fa fa-list"></i></a>
             <a class="btn btn-default" href="#" id="gridview" class="active"><i class="fa fa-square"></i></a>
         </div>
 
         <!-- Main content -->
-
         <div class="container center">
-            <h2>
+            <span class="table-header">
             Current Plants
-        </h2>
+            <button type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-right"></i> Move</button>
+            <button type="button" class="btn btn-default disabled"><i class="fa fa-trash"></i> Delete</button>
+            </span>
             <div class="gridview hidden">
                 <script>
                     for (i = 1; i <= 6; i++) {
@@ -178,7 +180,7 @@
                     <thead>
                         <tr>
                             <th>
-                                <input type="checkbox">
+                                <input type="checkbox" id="addSelectAll">
                             </th>
                             <th>Camera</th>
                             <th>Plant Name</th>
@@ -192,7 +194,7 @@
                     <tbody>
                         <tr class="clickableList" data-url="plant">
                             <td>
-                                <input type="checkbox">
+                                <input type="checkbox" class="addRowSelect">
                             </td>
                             <td>1L</td>
                             <td>IR64-IRS007-006</td>
@@ -204,7 +206,7 @@
                         </tr>
                         <tr class="clickableList" data-url="plant">
                             <td>
-                                <input type="checkbox">
+                                <input type="checkbox" class="addRowSelect">
                             </td>
                             <td>1R</td>
                             <td>Sample Plant 5</td>
@@ -215,7 +217,7 @@
                             <td>17.40</td>
                         </tr>
                         <tr data-toggle="modal" data-target=".addplant">
-                            <td class="btn-addplant" colspan="8">+Add Plant</td>
+                            <td class="btn-addplant" colspan="8">+ Add Plant</td>
                         </tr>
                     </tbody>
                 </table>
@@ -223,9 +225,7 @@
         </div>
         <!-- /.row -->
         <div class="container center">
-            <h2>
-            Archived Plants
-        </h2>
+            <h3>Archived Plants</h3>
             <div class="gridview hidden">
                 <script>
                     for (i = 1; i <= 6; i++) {
@@ -267,6 +267,14 @@
          //clickable rows
         $('.clickableList').click(function () {
             window.document.location = $(this).data('url');
+        });
+
+        $('#addSelectAll').click(function () {
+            if ($(this).is(':checked')) {
+                $('.addRowSelect').prop('checked', true);
+            } else {
+                $('.addRowSelect').prop('checked', false);
+            }
         });
     </script>
 </body>
