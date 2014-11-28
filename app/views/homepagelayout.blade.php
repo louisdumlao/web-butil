@@ -33,11 +33,8 @@
     </head>
 
     <body class="skin-blue">
-		@yield('navbar')       
-        <div class="container">
-			<!-- Content -->
-			@yield('homepage')
-        </div>
+		@yield('navbar')
+		@yield('homepage')
 
         <!-- Scripts are placed here -->
         {{ HTML::script('js/jquery-1.11.1.min.js') }}
