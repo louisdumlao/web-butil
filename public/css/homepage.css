@@ -33,9 +33,12 @@ body > .header .logo {
 
 .table-bordered-out {
     
-    border: 1px;
-    border-color: #ccc;
-    border-collapse: collapse;
+    border: 1px solid;
+    border-color: #aaa;
+}
+
+.table-bordered-out > td {
+    border: 1px inset;
 }
 
 .table thead {
@@ -65,14 +68,23 @@ body > .header .logo {
     background-color: #339933;
     cursor: pointer;
 }
+
+.table-hover>tbody>tr:hover>td>.fa-hidden {
+    color: #ccc;
+}
+.table-hover>tbody>tr:hover>td>.fa-hidden:hover {
+    color: #fff;
+}
+
 .plantinput tr td {
     width: auto;
     padding: 5px 5px;
 }
-.table-header {
-    display: inline-block;
-}
 .table-header:first-child {
     font-size: 24px;
     padding-right: 20px;
+}
+
+.fa-hidden {
+    visibility: hidden;
 }

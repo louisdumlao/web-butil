@@ -46,7 +46,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="glyphicon glyphicon-user"></i>
-                            <span>Guy Dude <i class="caret"></i></span>
+                            <span>Albert de Luna<i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -167,174 +167,208 @@
 
         <!-- grid/list view control -->
         <div class="btn-group pull-right">
-            <a class="btn btn-default" href="#" id="listview" class=""><i class="fa fa-list"></i></a>
-            <a class="btn btn-default" href="#" id="gridview" class="active"><i class="fa fa-image"></i></a>
+            <a class="btn btn-default active" id="listview"><i class="fa fa-list"></i></a>
+            <a class="btn btn-default" id="gridview"><i class="fa fa-image"></i></a>
         </div>
 
         <!-- Main content -->
         <div class="container center">
-            <span class="table-header">
-            Current Plants
-            <button type="button" class="btn btn-default disabled btn-curr"><i class="fa fa-arrow-circle-down"></i> Move</button>
-            <button type="button" class="btn btn-default disabled btn-curr"><i class="fa fa-trash"></i> Delete</button>
-            </span>
-            <div class="gridview hidden">
-                <script>
-                    for (i = 1; i <= 6; i++) {
-                        document.write('<a href="#" class="col-xs-3">')
-                        document.write('<div class="small-box bg-highlight">')
-                        document.write('<div class="inner">')
-                        document.write('<img src="img/img' + i % 2 + '.jpg">')
-                        document.write('</div>')
-                        document.write('<div class="small-box-footer"');
-                        document.write('<p>Plant ' + i + '</p>');
-                        document.write('<p>Mid-Tillering</p>');
-                        document.write('<p>Plant Type</p>');
-                        document.write('</div>');
-                        document.write('</div>');
-                        document.write('</a>');
-                    }
-                </script>
+            <div class="row">
+                <span class="table-header">
+                <span class="col-sm-3">
+                Current Plants
+                </span>
+                <span class="btn-group col-sm-6">
+                <a class="btn btn-default disabled btn-curr"><i class="fa fa-arrow-circle-down"></i> Archive</a>
+                <a class="btn btn-default disabled btn-curr"><i class="fa fa-trash"></i> Delete</a>
+                </span>
+                </span>
             </div>
-            <div class="listview">
-                <table class="table table-bordered table-hover table-condensed table-responsive">
-                    <thead>
-                        <tr>
-                            <th>
-                                <input type="checkbox" id="currPlantSelectAll">
-                            </th>
-                            <th>Camera</th>
-                            <th>Plant Name</th>
-                            <th>Date Last Phenotyped</th>
-                            <th>Biomass (cm3)</th>
-                            <th>Greenness</th>
-                            <th>Height</th>
-                            <th>Tiller Count</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="clickableList" data-url="plant">
-                            <td>
-                                <input type="checkbox" class="currPlantRowSelect">
-                            </td>
-                            <td>1L</td>
-                            <td>IR64-IRS007-006</td>
-                            <td>2014-11-11</td>
-                            <td>43</td>
-                            <td>Between 3 and 4</td>
-                            <td>40.63</td>
-                            <td>1</td>
-                        </tr>
-                        <tr class="clickableList" data-url="plant">
-                            <td>
-                                <input type="checkbox" class="currPlantRowSelect">
-                            </td>
-                            <td>1R</td>
-                            <td>Sample Plant 5</td>
-                            <td>2014-10-18</td>
-                            <td>45</td>
-                            <td>3</td>
-                            <td>51.12</td>
-                            <td>17.40</td>
-                        </tr>
-                        <tr data-toggle="modal" data-target=".addplant">
-                            <td class="btn-addplant" colspan="8">+ Add Plant</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="gridview hidden">
+                    <script>
+                        for (i = 1; i <= 6; i++) {
+                            document.write('<a href="#" class="col-xs-3">')
+                            document.write('<div class="small-box bg-highlight">')
+                            document.write('<div class="inner">')
+                            document.write('<img src="img/img' + i % 2 + '.jpg">')
+                            document.write('</div>')
+                            document.write('<div class="small-box-footer"');
+                            document.write('<p>Plant ' + i + '</p>');
+                            document.write('<p>Mid-Tillering</p>');
+                            document.write('<p>Plant Type</p>');
+                            document.write('</div>');
+                            document.write('</div>');
+                            document.write('</a>');
+                        }
+                    </script>
+                </div>
+                <div class="listview col-sm-12">
+                    <table class="table table-bordered-out table-hover table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="currPlantSelectAll">
+                                </th>
+                                <th>Camera</th>
+                                <th>Plant Name</th>
+                                <th></th>
+                                <th>Date Last Phenotyped</th>
+                                <th>Biomass (cm3)</th>
+                                <th>Greenness</th>
+                                <th>Height</th>
+                                <th>Tiller Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- plant values here; use data-url for navigating to plant phenotypic history menu; fa-pencil for edit modal -->
+                            <tr class="clickable-row" data-url="plant">
+                                <td>
+                                    <input type="checkbox" class="currPlantRowSelect">
+                                </td>
+                                <td>1L</td>
+                                <td>IR64-IRS007-006</td>
+                                <td><i class="fa fa-pencil fa-hidden" data-toggle="modal" data-target=".addplant"></i>
+                                </td>
+                                <td>2014-11-11</td>
+                                <td>43</td>
+                                <td>Between 3 and 4</td>
+                                <td>40.63</td>
+                                <td>1</td>
+                            </tr>
+                            <tr class="clickable-row" data-url="plant">
+                                <td>
+                                    <input type="checkbox" class="currPlantRowSelect">
+                                </td>
+                                <td>1R</td>
+                                <td>Sample Plant 5</td>
+                                <td><i class="fa fa-pencil fa-hidden"></i>
+                                </td>
+                                <td>2014-10-18</td>
+                                <td>45</td>
+                                <td>3</td>
+                                <td>51.12</td>
+                                <td>17.40</td>
+                            </tr>
+                            <tr data-toggle="modal" data-target=".addplant">
+                                <td class="btn-addplant" colspan="9">+ Add Plant</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <!-- /.row -->
         <div class="container center">
-            <span class="table-header">
+            <div class="row">
+                <span class="table-header">
+            <span class="col-sm-3">
             Archived Plants
-            <button type="button" class="btn btn-default disabled btn-arch"><i class="fa fa-arrow-circle-up"></i> Move</button>
-            <button type="button" class="btn btn-default disabled btn-arch"><i class="fa fa-trash"></i> Delete</button>
             </span>
-            <div class="gridview hidden">
-                <script>
-                    for (i = 1; i <= 6; i++) {
-                        document.write('<a href="#" class="col-xs-3">')
-                        document.write('<div class="small-box bg-highlight">')
-                        document.write('<div class="inner">')
-                        document.write('<img src="img/img' + i % 2 + '.jpg">')
-                        document.write('</div>')
-                        document.write('<div class="small-box-footer"');
-                        document.write('<p>Plant ' + i + '</p>');
-                        document.write('<p>Mid-Tillering</p>');
-                        document.write('<p>Plant Type</p>');
-                        document.write('</div>');
-                        document.write('</div>');
-                        document.write('</a>');
-                    }
-                </script>
+                <span class="btn-group col-sm-6">
+            <a class="btn btn-default disabled btn-arch"><i class="fa fa-arrow-circle-up"></i> Restore</a>
+            <a class="btn btn-default disabled btn-arch"><i class="fa fa-trash"></i> Delete</a>
+            </span>
+                </span>
             </div>
-            <table class="table table-bordered table-hover table-condensed table-responsive">
-                <thead>
-                    <tr>
-                        <th>
-                            <input type="checkbox" id="archPlantSelectAll">
-                        </th>
-                        <th>Camera</th>
-                        <th>Plant Name</th>
-                        <th>Date Last Phenotyped</th>
-                        <th>Biomass (cm3)</th>
-                        <th>Greenness</th>
-                        <th>Height</th>
-                        <th>Tiller Count</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="clickableList" data-url="plant">
-                        <td>
-                            <input type="checkbox" class="archPlantRowSelect">
-                        </td>
-                        <td>1L</td>
-                        <td>IR64-C-IRS001-001</td>
-                        <td>2014-08-02</td>
-                        <td>24</td>
-                        <td>Between 3 and 4</td>
-                        <td>46.50</td>
-                        <td>15.50</td>
-                    </tr>
-                    <tr class="clickableList" data-url="plant">
-                        <td>
-                            <input type="checkbox" class="archPlantRowSelect">
-                        </td>
-                        <td>1R</td>
-                        <td>Sample Plant 2</td>
-                        <td>2014-06-18</td>
-                        <td>45</td>
-                        <td>3</td>
-                        <td>21.40</td>
-                        <td>58.16</td>
-                    </tr>
-                    <tr class="clickableList" data-url="plant">
-                        <td>
-                            <input type="checkbox" class="archPlantRowSelect">
-                        </td>
-                        <td>2L</td>
-                        <td>Sample Plant 3</td>
-                        <td>2013-01-12</td>
-                        <td>38</td>
-                        <td>Between 2 and 3</td>
-                        <td>61.24</td>
-                        <td>16.32</td>
-                    </tr>
-                    <tr class="clickableList" data-url="plant">
-                        <td>
-                            <input type="checkbox" class="archPlantRowSelect">
-                        </td>
-                        <td>3R</td>
-                        <td>Sample Plant 4</td>
-                        <td>2011-06-16</td>
-                        <td>41.2</td>
-                        <td>2</td>
-                        <td>28.14</td>
-                        <td>13.22</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="gridview hidden">
+                    <script>
+                        for (i = 1; i <= 6; i++) {
+                            document.write('<a href="#" class="col-xs-3">')
+                            document.write('<div class="small-box bg-highlight">')
+                            document.write('<div class="inner">')
+                            document.write('<img src="img/img' + i % 2 + '.jpg">')
+                            document.write('</div>')
+                            document.write('<div class="small-box-footer"');
+                            document.write('<p>Plant ' + i + '</p>');
+                            document.write('<p>Mid-Tillering</p>');
+                            document.write('<p>Plant Type</p>');
+                            document.write('</div>');
+                            document.write('</div>');
+                            document.write('</a>');
+                        }
+                    </script>
+                </div>
+                <div class="listview col-sm-12">
+                    <table class="table table-bordered-out table-hover table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="archPlantSelectAll">
+                                </th>
+                                <th>Camera</th>
+                                <th>Plant Name</th>
+                                <th></th>
+                                <th>Date Last Phenotyped</th>
+                                <th>Biomass (cm3)</th>
+                                <th>Greenness</th>
+                                <th>Height</th>
+                                <th>Tiller Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="clickable-row" data-url="plant">
+                                <td>
+                                    <input type="checkbox" class="archPlantRowSelect">
+                                </td>
+                                <td>1L</td>
+                                <td>IR64-C-IRS001-001</td>
+                                <td><i class="fa fa-pencil fa-hidden"></i>
+                                </td>
+                                <td>2014-08-02</td>
+                                <td>24</td>
+                                <td>Between 3 and 4</td>
+                                <td>46.50</td>
+                                <td>15.50</td>
+                            </tr>
+                            <tr class="clickable-row" data-url="plant">
+                                <td>
+                                    <input type="checkbox" class="archPlantRowSelect">
+                                </td>
+                                <td>1R</td>
+                                <td>Sample Plant 2</td>
+                                <td><i class="fa fa-pencil fa-hidden"></i>
+                                </td>
+
+                                <td>2014-06-18</td>
+                                <td>45</td>
+                                <td>3</td>
+                                <td>21.40</td>
+                                <td>58.16</td>
+                            </tr>
+                            <tr class="clickable-row" data-url="plant">
+                                <td>
+                                    <input type="checkbox" class="archPlantRowSelect">
+                                </td>
+                                <td>2L</td>
+                                <td>Sample Plant 3</td>
+                                <td><i class="fa fa-pencil fa-hidden"></i>
+                                </td>
+
+                                <td>2013-01-12</td>
+                                <td>38</td>
+                                <td>Between 2 and 3</td>
+                                <td>61.24</td>
+                                <td>16.32</td>
+                            </tr>
+                            <tr class="clickable-row" data-url="plant">
+                                <td>
+                                    <input type="checkbox" class="archPlantRowSelect">
+                                </td>
+                                <td>3R</td>
+                                <td>Sample Plant 4</td>
+                                <td><i class="fa fa-pencil fa-hidden"></i>
+                                </td>
+                                <td>2011-06-16</td>
+                                <td>41.2</td>
+                                <td>2</td>
+                                <td>28.14</td>
+                                <td>13.22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <!-- ./wrapper -->
@@ -355,8 +389,16 @@
         });
 
          //clickable rows
-        $('.clickableList').click(function () {
+        $('.clickable-row').click(function () {
             window.document.location = $(this).data('url');
+        });
+
+        $('.clickable-row').hover(function () {
+            $(this).find('.fa-pencil').css('visibility', 'visible');
+        });
+
+        $('.clickable-row').mouseleave(function () {
+            $(this).find('.fa-pencil').css('visibility', 'hidden');
         });
 
         $('#currPlantSelectAll').click(function () {
