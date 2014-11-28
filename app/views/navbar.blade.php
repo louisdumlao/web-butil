@@ -37,7 +37,7 @@
 								</li><!-- end message -->
 							</ul>
 						</li>
-						<li class="footer"><a href="#">Edit Capture Appointment</a></li>
+						<li class="footer"><a data-toggle="modal" data-target=".edit-appointment">Edit Capture Appointment</a></li>
 					</ul>
 				</li>
 				</li>
@@ -80,7 +80,94 @@
 				</li>
 			</ul>
 		</div>
+		
 	</nav>
 </header>
+
+<!-- temp appointment modal-->
+        <div class="edit-appointment modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Add Plant</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editPlantModal" method="POST">
+                            <table class="plantinput">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3">
+                                            Set the next camera appointment date and frequency:</td>
+                                        <tr>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                        2014
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                        @for ($i = 2014; $i <= 2020; $i++)
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
+                                                        </li>
+                                                        @endfor
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                        1
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                       @for ($i = 1; $i <= 12; $i++)
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
+                                                        </li>
+                                                        @endfor
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                        1
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                        @for ($i = 1; $i <= 30; $i++)
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
+                                                        </li>
+                                                        @endfor
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                        Frequency
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Once</a>
+                                                        </li>
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Daily</a>
+                                                        </li>
+                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Weekly</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 @stop
