@@ -28,7 +28,7 @@ class HomeController extends BaseController {
 			return Redirect::route('user');
 		}
 		else {
-			return Redirect::route('/home')->with('username', $userdata['username'])
+			return Redirect::route('home')->with('username', $userdata['username'])
 				->with('password', $userdata['password'])
 				->with('name', $userdata['name']);
 		}

@@ -30,10 +30,6 @@ Route::get('users', function()
 Route::get('/', 'HomeController@index');
 Route::get('plant', array('as' => 'plant', 'uses' => 'PlantController@index'));
 Route::get('logout', array('as' => 'user', 'uses' => 'UserController@index'));
-Route::get('home', array('as' => '/home'));
-Route::get('/home', function()
-{
-    return View::make('homepage');
-});
+Route::get('home', array('as' => 'home', 'uses' => 'HomePageController@index'));
 
 /*Route::controller('plants', 'PlantController');*/
