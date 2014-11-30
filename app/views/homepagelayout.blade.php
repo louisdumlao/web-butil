@@ -12,7 +12,6 @@
  	
 
 		<!--CSS are placed here -->
-        {{ HTML::style('css/bootstrap.css') }}
 		{{ HTML::style('css/bootstrap.min.css') }}
 		{{ HTML::style('css/ionicons.min.css') }}
 		{{ HTML::style('css/AdminLTE.css') }}
@@ -38,15 +37,18 @@
 
         <!-- Scripts are placed here -->
         {{ HTML::script('js/jquery-1.11.1.min.js') }}
+		{{ HTML::script('js/jquery-2.1.0.min.js') }}
+		{{ HTML::script('js/icheck.min.js') }}
 		{{ HTML::script('js/butilscript.js') }}
 		{{ HTML::script('js/bootstrap-datepicker.js') }}
-		{{ HTML::script('js/jquery-2.1.0.min.js') }}
 		{{ HTML::script('js/bootstrap.min.js') }}
 		{{ HTML::script('js/AdminLTE/app.js') }}
-		 <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<!--        <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
 		{{ HTML::script('js/AdminLTE/morris.js') }}
 
 <script>
+    
+    $('input').iCheck();
         $('#listview').click(function () {
             $('.gridview').addClass("hidden");
             $('.listview').removeClass("hidden");
@@ -73,12 +75,21 @@
         $('.clickable-row').mouseleave(function () {
             $(this).find('.fa-pencil').css('visibility', 'hidden');
         });
+    
+    $('.clickable-row .checkbox-curr-plant').click(function(e){
+            e.stopPropagation(); 
+        });
+    
+    $('.clickable-row .fa-pencil').click(function(e){
+            e.stopPropagation();
+        $('.clickable-row .fa-pencil').modal('toggle');
+        });
 
         $('#currPlantSelectAll').click(function () {
             if ($(this).is(':checked')) {
-                $('.currPlantRowSelect').prop('checked', true);
+                $('.checkbox-curr-plant').prop('checked', true);
             } else {
-                $('.currPlantRowSelect').prop('checked', false);
+                $('.checkbox-curr-plant').prop('checked', false);
             }
         });
 
@@ -91,7 +102,7 @@
         });
 
         $('input[type=checkbox]').click(function () {
-            var currCheck = $('input[class=currPlantRowSelect]:checked').length > 0;
+            var currCheck = $('input[class=checkbox-curr-plant]:checked').length > 0;
             var archCheck = $('input[class=archPlantRowSelect]:checked').length > 0;
             if (currCheck) {
                 $('.btn-curr').removeClass("disabled");

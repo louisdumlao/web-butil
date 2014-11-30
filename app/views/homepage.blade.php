@@ -141,7 +141,7 @@
                             <!-- plant values here; use data-url for navigating to plant phenotypic history menu; fa-pencil for edit modal -->
                             <tr class="clickable-row" data-url="plant">
                                 <td>
-                                    <input type="checkbox" class="currPlantRowSelect">
+                                    <input type="checkbox" class="checkbox-curr-plant">
                                 </td>
                                 <td>1L</td>
                                 <td>IR64-IRS007-006</td>
@@ -155,7 +155,7 @@
                             </tr>
                             <tr class="clickable-row" data-url="plant">
                                 <td>
-                                    <input type="checkbox" class="currPlantRowSelect">
+                                    <input type="checkbox" class="checkbox-curr-plant">
                                 </td>
                                 <td>1R</td>
                                 <td>Sample Plant 5</td>
@@ -182,7 +182,7 @@
             Archived Plants
             </span>
                 <span class="btn-group col-sm-6">
-            <a class="btn btn-default disabled btn-arch"><i class="fa fa-arrow-circle-up"></i> Restore</a>
+            <a class="btn btn-default disabled btn-arch"><i class="fa fa-arrow-circle-up"></i>Move to Archive</a>
             <a class="btn btn-default disabled btn-arch"><i class="fa fa-trash"></i> Delete</a>
             </span>
                 </span>

@@ -89,7 +89,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title">Add Plant</h3>
+                        <h3 class="modal-title">Set Capture Appointment</h3>
                     </div>
                     <div class="modal-body">
                         <form id="editPlantModal" method="POST">
