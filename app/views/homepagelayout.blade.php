@@ -31,23 +31,23 @@
     @yield('navbar') @yield('homepage')
 
     <!-- Scripts are placed here -->
-    {{ HTML::script('js/jquery-1.11.1.min.js') }} {{ HTML::script('js/butilscript.js') }} {{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/bootstrap-datepicker.js') }} {{ HTML::script('js/bootstrap.min.js') }}
+    {{ HTML::script('js/jquery-1.11.1.min.js') }} {{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/butilscript.js') }} {{ HTML::script('js/bootstrap.min.js') }} {{ HTML::script('jquery-ui-1.10.3.min.js') }}
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     {{ HTML::script('js/AdminLTE/morris.js') }}
 
     <script>
-        $('#listview').click(function () {
-            $('.gridview').addClass("hidden");
-            $('.listview').removeClass("hidden");
+        $('#list-view').click(function () {
+            $('.grid-view').addClass("hidden");
+            $('.list-view').removeClass("hidden");
             $(this).addClass("active");
-            $('#gridview').removeClass("active");
+            $('#grid-view').removeClass("active");
         });
 
-        $('#gridview').click(function () {
-            $('.listview').addClass("hidden");
-            $('.gridview').removeClass("hidden");
+        $('#grid-view').click(function () {
+            $('.list-view').addClass("hidden");
+            $('.grid-view').removeClass("hidden");
             $(this).addClass("active");
-            $('#listview').removeClass("active");
+            $('#list-view').removeClass("active");
         });
 
          //clickable rows
@@ -68,9 +68,8 @@
         });
 
         $('.clickable-row .fa-pencil').click(function (e) {
-            if ($(event.target).closest('.clickable-row .fa-pencil')) {
-                $('.clickable-row .fa-pencil').modal(show);
-            }
+            e.stopPropagation();
+            $('.addplant').modal('show');
         });
 
         $('#currPlantSelectAll').click(function () {
