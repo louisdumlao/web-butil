@@ -67,11 +67,14 @@ body > .header .logo {
 }
 .center {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: 70%;
 }
-.btn-addplant, .btn-viewmore {
+.list-view {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.btn-addplant,
+.btn-viewmore {
     font-weight: 700;
     font-size: 18px;
     padding: 30px;
