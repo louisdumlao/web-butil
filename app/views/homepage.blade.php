@@ -3,7 +3,7 @@
 
     <!-- add plant modal -->
 
-    <div class="addplant modal fade">
+    <div class="addplant modal fade" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,7 +72,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-primary" style="background-color: #339933">Add</button>
                 </div>
             </div>
         </div>
@@ -86,8 +86,14 @@
     <!-- Main content -->
     <div class="container center">
         <div class="row">
+            <div class="btn-group pull-right">
+                <a class="btn btn-default active" id="list-view"><i class="fa fa-list"></i></a>
+                <a class="btn btn-default" id="grid-view"><i class="fa fa-image"></i></a>
+            </div>
+        </div>
+        <div class="row">
             <span class="table-header">
-                <span class="col-sm-3">
+                <span class="col-sm-3 table-header">
                 Current Plants
                 </span>
             <span class="btn-group col-sm-6">
@@ -95,10 +101,6 @@
                 <a class="btn btn-default disabled btn-curr"><i class="fa fa-trash"></i> Delete</a>
                 </span>
             </span>
-            <div class="btn-group pull-right">
-                <a class="btn btn-default active" id="list-view"><i class="fa fa-list"></i></a>
-                <a class="btn btn-default" id="grid-view"><i class="fa fa-image"></i></a>
-            </div>
         </div>
         <div class="row">
             <div class="grid-view hidden table-bordered-out col-sm-12">
@@ -175,7 +177,7 @@
     <div class="container center">
         <div class="row">
             <span class="table-header">
-            <span class="col-sm-3">
+            <span class="col-sm-3 table-header">
             Archived Plants
             </span>
             <span class="btn-group col-sm-6">

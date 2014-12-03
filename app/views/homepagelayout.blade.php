@@ -31,7 +31,7 @@
     @yield('navbar') @yield('homepage')
 
     <!-- Scripts are placed here -->
-    {{ HTML::script('js/jquery-1.11.1.min.js') }} {{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/butilscript.js') }} {{ HTML::script('js/bootstrap.min.js') }} {{ HTML::script('jquery-ui-1.10.3.min.js') }}
+    {{ HTML::script('js/jquery-1.11.1.min.js') }} {{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/butilscript.js') }} {{ HTML::script('js/bootstrap.min.js') }}
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     {{ HTML::script('js/AdminLTE/morris.js') }}
 

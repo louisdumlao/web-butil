@@ -6,7 +6,7 @@ body > .header .logo {
     background-color: #339933;
 }
 .skin-blue .logo:hover {
-    background: #114411;
+    background: #339933;
 }
 .skin-blue .navbar {
     background-color: #339933;
@@ -23,15 +23,13 @@ body > .header .logo {
 .bg-highlight:hover {
     background-color: #339933;
 }
-.small-box > .small-box-footer {
-    background: rgba(100, 100, 100, .6);
-}
+.small-box > .small-box-footer,
 .small-box > .small-box-footer:hover {
-    background: rgba(100, 100, 100, .6);
+    background: rgba(90, 90, 90, .5);
 }
 .sidebar {
     width: auto;
-    height: auto;
+    15ight15 auto;
 }
 .table-bordered-out {
     border: 1px solid;
@@ -101,4 +99,8 @@ body > .header .logo {
 }
 .fa-hidden {
     visibility: hidden;
+}
+.table-header {
+    padding-left: 0px;
+    vertical-align: bottom;
 }
