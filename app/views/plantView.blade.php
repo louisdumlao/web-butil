@@ -4,22 +4,16 @@
 
 	<div>
 		<div class="plant-settings">
-			<div class="dropdown">
-				<button class="btn btn-default" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-					<li role="presentation">
-						<a role="menuitem" tabindex="-1" href="#">Edit</a>
-					</li>
-					<li role="presentation">
-						<a role="menuitem" tabindex="-1" href="#">Delete</a>
-					</li>
-				</ul>
-			</div>
+			
 		</div>
 		<div class="plant-details">
-			<h3>{{ $plant[0]['name'] }}</h3>
+			<h3>
+				<span>
+					{{ $plant[0]['name'] }}
+					<i class="fa fa-pencil butil-edit-plant" data-toggle="modal" data-target=".editPlantModal"></i>
+					@include('editPlantModal')
+				</span>
+			</h3>
 			Date placed: {{ $plant[0]['dateplaced'] }}<br>
 			Plant Stage: {{ $plant[0]['stage'] }}<br>
 			<br>

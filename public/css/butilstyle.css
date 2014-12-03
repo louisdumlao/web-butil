@@ -45,3 +45,9 @@
 .body {
 	height: 100%;
 }
+
+.butil-edit-plant:hover {
+	color: #666;
+	cursor: pointer;
+	
+}

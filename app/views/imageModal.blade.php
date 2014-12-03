@@ -82,10 +82,11 @@
 							<p>
 							<div class="butil-comment">
 								<h5><b>Comments</b>
-									{{ Form::button('<span class="glyphicon glyphicon-pencil"></span>') }}</h5>
+									<i class="fa fa-pencil butil-edit-plant" data-toggle="modal" data-target=".editCommentModal"></i></h5>
 								<div class="butil-comments">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus viverra lacus quis massa convallis pellentesque. Integer malesuada bibendum ornare. Quisque tincidunt rutrum ligula vitae rutrum. Pellentesque vehicula urna quis consequat fringilla. Cras vehicula scelerisque condimentum. Mauris consectetur diam sed ligula lobortis, et laoreet magna interdum.
 								</div>
+								@include('editCommentModal')
 							</div>
 						</div>
 					</div>
