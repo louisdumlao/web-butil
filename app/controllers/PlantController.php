@@ -98,6 +98,17 @@ class PlantController extends BaseController
 			}
 			$camera->save();
 		}
+		else{
+			$camera;
+			if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null){
+				$camera->Current_Left_Plant_ID =  null;
+				$camera->save();
+			}
+			elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null){
+				$camera->Current_Right_Plant_ID = null;
+				$camera->save();
+			}
+		}
 
 		return Redirect::to('/plant/'.$plantId);
 	}

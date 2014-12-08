@@ -36,12 +36,13 @@
     </head>
 
     <body class="skin-blue">
+
 		@yield('navbar')       
         <div class="container">
 			<!-- Content -->
 			@yield('settings')
 			@yield('content')
-			@yield('modals.imageModal')
+			
         </div>
 
         <!-- Scripts are placed here -->
