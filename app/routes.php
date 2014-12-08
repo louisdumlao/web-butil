@@ -34,4 +34,9 @@ Route::post('editPlant/{plantId}', array('as' => 'editPlant', 'uses' => 'PlantCo
 Route::get('logout', array('as' => 'user', 'uses' => 'UserController@index'));
 Route::get('home', array('as' => 'home', 'uses' => 'HomePageController@index'));
 
+Route::get('test', function(){
+	date_default_timezone_set('Asia/Taipei');
+	return date("l, F j, Y h:i:s A", strtotime("now"));
+});
+
 /*Route::controller('plants', 'PlantController');*/

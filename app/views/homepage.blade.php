@@ -93,7 +93,7 @@
             <div class="grid-view hidden table-bordered-out col-sm-12">
                 @foreach ($plants as $plant)
                 @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() != null)
-                    <a href="#" class="col-xs-2 grid-element">
+                    <a href="plant/{{{$plant->ID}}}" class="col-xs-2 grid-element">
                     <div class="small-box bg-highlight">
                         <div class="inner">
                             <img src="img/img{{$plant->ID%2}}.jpg">
@@ -182,7 +182,7 @@
             <div class="grid-view hidden table-bordered-out">
                 @foreach ($plants as $plant)
                 @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() == null)
-                    <a href="#" class="col-xs-2 grid-element">
+                    <a href="plant/{{{$plant->ID}}}" class="col-xs-2 grid-element">
                     <div class="small-box bg-highlight">
                         <div class="inner">
                             <img src="img/img{{$plant->ID%2}}.jpg">
@@ -219,7 +219,7 @@
                         @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() == null)
                         <tr class="clickable-row" data-url="plant/{{{$plant->ID}}}">
                             <td>
-                                <input type="checkbox" class="checkbox-curr-plant">
+                                <input type="checkbox" class="archPlantRowSelect">
                             </td>
                             <td>@if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null)
                                     {{{$camera->ID.'L'}}}

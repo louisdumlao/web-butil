@@ -17,8 +17,8 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<span>
 							<i class="glyphicon glyphicon-camera"></i>
-							October 11, 2014
-							11:30 PM
+                            <?php date_default_timezone_set('Asia/Taipei');?>
+                            {{{ date("F j, Y h:i A", strtotime("now")) }}}
 						</span>
 						
 					</a>
@@ -27,14 +27,17 @@
 						<li>
 							<!-- inner menu: contains the actual data -->
 							<ul class="menu">
+                                @foreach($camera_appointments as $cameraAppointment)
 								<li><!-- start message -->
 									<a href="#">
-										<h4>Saturday,</h4>
-										<h4>October 11, 2014</h4>
-										<h4>11:30<small>PM</small></h4>
-										Repeats every 6 days.
+										<h4>{{{ date("l,", strtotime($cameraAppointment->Date_Taken)) }}}</h4>
+										<h4>{{{ date("F j, Y", strtotime($cameraAppointment->Date_Taken)) }}}</h4>
+										<h4>{{{ date("h:i:s", strtotime($cameraAppointment->Date_Taken)) }}}<small>{{{ date("A", strtotime($cameraAppointment->Date_Taken)) }}}</small></h4>
+                                        @if($cameraAppointment->Interval == 'Daily') Repeats Daily @endif
+                                        @if($cameraAppointment->Interval == 'Weekly') Repeats Weekly @endif										
 									</a>
 								</li><!-- end message -->
+                                @endforeach
 							</ul>
 						</li>
 						<li class="footer"><a data-toggle="modal" data-target=".edit-appointment">Edit Capture Appointment</a></li>
