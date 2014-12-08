@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.plantlayout')
 
 @section('imageModal')
 @foreach($plant->images()->get() as $image)
@@ -83,10 +83,28 @@
 							<p>
 							<div class="butil-comment">
 								<h5><b>Comments</b>
-									{{ Form::button('<span class="glyphicon glyphicon-pencil"></span>') }}</h5>
+									<i class="fa fa-pencil butil-edit-plant" data-toggle="modal" data-target=".editCommentModal"></i></h5>
 								<div class="butil-comments">
 									{{{$image->Comments}}}
 								</div>
+								<div class="editCommentModal modal fade">
+							        <div class="modal-dialog">
+							            <div class="modal-content">
+							                <div class="modal-header">
+							                    <h3 class="modal-title">Comment</h3>
+							                </div>
+							                <div class="modal-body">
+							                    <form id="editPlantModal" method="POST">
+													<textarea id="" class="form-control" rows="5" placeholder="Write comment here...">{{{$image->Comments}}}</textarea>
+							                    </form>
+							                </div>
+							                <div class="modal-footer">
+							                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+							                    <button type="button" class="btn btn-primary">Save</button>
+							                </div>
+							            </div>
+							        </div>
+							    </div>
 							</div>
 						</div>
 					</div>

@@ -40,9 +40,8 @@
         <div class="container">
 			<!-- Content -->
 			@yield('settings')
-			@yield('addPlantModal')
 			@yield('content')
-			@yield('imageModal')
+			@yield('modals.imageModal')
         </div>
 
         <!-- Scripts are placed here -->

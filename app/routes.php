@@ -30,7 +30,8 @@ Route::get('users', function()
 Route::get('/', 'HomeController@index');
 Route::get('plant/{plant_id}', array('as' => 'plant', 'uses' => 'PlantController@index'))->where('plant_id', '[0-9]+');
 Route::post('addPlant', array('as' => 'addPlant', 'uses' => 'PlantController@addPlant'));
+Route::post('editPlant/{plantId}', array('as' => 'editPlant', 'uses' => 'PlantController@editPlant'))->where('plant_id', '[0-9]+');
 Route::get('logout', array('as' => 'user', 'uses' => 'UserController@index'));
-Route::get('home', array('as' => 'home', 'uses' => 'HomeController@home'));
+Route::get('home', array('as' => 'home', 'uses' => 'HomePageController@index'));
 
 /*Route::controller('plants', 'PlantController');*/

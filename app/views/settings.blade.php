@@ -1,4 +1,4 @@
-ampp@extends('layout')
+@extends('layouts.plantlayout')
 
 @section('settings')
 <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="settingsLabel" aria-hidden="true">

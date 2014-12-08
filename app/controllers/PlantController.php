@@ -3,7 +3,7 @@
 class PlantController extends BaseController
 {
 	
-	protected $layout = 'layout';
+	protected $layout = 'layouts.plantlayout';
 	public function index($plant_id)
 	{
 		$data = array(
@@ -42,11 +42,12 @@ class PlantController extends BaseController
 		);
 
 		$plant = Plant::findOrFail($plant_id);
+		$cameras = Camera::all();
+
 		$this->layout->navbar = View::make('navbar', $data);
-		$this->layout->content = View::make('plantView', $data)->withPlant($plant);
-		$this->layout->imageModal = View::make('imageModal', $data)->withPlant($plant);
+		$this->layout->content = View::make('plantView', $data)->withPlant($plant)->withCameras($cameras);;
+		$this->layout->imageModal = View::make('modals.imageModal', $data)->withPlant($plant);
 		$this->layout->settings = View::make('settings', $data);
-		$this->layout->addPlantModal = View::make('addPlantModal', $data);
 	}
 
 	public function addPlant(){
@@ -58,20 +59,46 @@ class PlantController extends BaseController
 		$plant->save();
 
 		$cameraSlot = Input::get('Camera_ID_Side');
+		if($cameraSlot != "none"){
+			$camera_id = (int)substr($cameraSlot, 0, -1);
+			$camera_side = substr($cameraSlot, -1);
 
-		$camera_id = (int)substr($cameraSlot, 0, -1);
-		$camera_side = substr($cameraSlot, -1);
+			$camera = Camera::where('ID', $camera_id)->first();
 
-		$camera = Camera::where('ID', $camera_id)->first();
-
-		if($camera_side === 'L'){
-			$camera->Current_Left_Plant_ID =  $plant->ID;
-		}else{
-			$camera->Current_Right_Plant_ID = $plant->ID;
+			if($camera_side === 'L'){
+				$camera->Current_Left_Plant_ID =  $plant->ID;
+			}else{
+				$camera->Current_Right_Plant_ID = $plant->ID;
+			}
+			$camera->save();
 		}
 
-		$camera->save();
-
 		return Redirect::to('/');
+	}
+
+	public function editPlant($plantId){
+		//save model to db
+		$plant = Plant::findOrFail($plantId);
+		$plant->Plant_Name =  Input::get('Plant_Name');
+		$plant->Date_Placed = Input::get('Date_Placed');
+		$plant->Plant_Stage =  Input::get('Plant_Stage');
+		$plant->save();
+
+		$cameraSlot = Input::get('Camera_ID_Side');
+		if($cameraSlot != "none"){
+			$camera_id = (int)substr($cameraSlot, 0, -1);
+			$camera_side = substr($cameraSlot, -1);
+
+			$camera = Camera::where('ID', $camera_id)->first();
+
+			if($camera_side === 'L'){
+				$camera->Current_Left_Plant_ID =  $plant->ID;
+			}else{
+				$camera->Current_Right_Plant_ID = $plant->ID;
+			}
+			$camera->save();
+		}
+
+		return Redirect::to('/plant/'.$plantId);
 	}
 }
