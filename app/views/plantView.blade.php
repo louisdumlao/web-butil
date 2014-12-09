@@ -21,11 +21,11 @@
 									<div class="view-choice">
 										<p>
 										<div class="btn-group">
-											<input class="butil-viewopt-button" type="image" src="/web-butil/public/assets/images/buttons/Normal3.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Raw_Path}}}', '{{{'plantImage'.$image->ID}}}')">
-											<input type="image" src="/web-butil/public/assets/images/buttons/Biomass3.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Biomass_Path}}}', '{{{'plantImage'.$image->ID}}}')">
-											<input type="image" src="/web-butil/public/assets/images/buttons/Greenness2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Greenness_Path}}}', '{{{'plantImage'.$image->ID}}}')">
-											<input type="image" src="/web-butil/public/assets/images/buttons/Height2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Height_Path}}}', '{{{'plantImage'.$image->ID}}}')">
-											<input type="image" src="/web-butil/public/assets/images/buttons/Tiller2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Tiller_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+											<input class="butil-viewopt-button" type="image" src="../assets/images/buttons/Normal3.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Raw_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+											<input type="image" src="../assets/images/buttons/Biomass3.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Biomass_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+											<input type="image" src="../assets/images/buttons/Greenness2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Greenness_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+											<input type="image" src="../assets/images/buttons/Height2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Height_Path}}}', '{{{'plantImage'.$image->ID}}}')">
+											<input type="image" src="../assets/images/buttons/Tiller2.png" name="image" width="60" height="60" onclick="changeImage('{{{$image->Processed_Tiller_Path}}}', '{{{'plantImage'.$image->ID}}}')">
 
 									  </div>
 									</div>
@@ -107,7 +107,7 @@
 										                </div>
 										                <div class="modal-footer">
 										                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-										                    <button type="button" class="btn btn-primary">Save</button>
+										                    <button type="button" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();" class="btn btn-primary">Save</button>
 										                </div>
 										            </div>
 										        </div>
@@ -188,7 +188,7 @@
 					                </div>
 					                <div class="modal-footer">
 					                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					                    <button type="submit" class="btn btn-primary">Edit</button>
+					                    <button type="submit" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();" class="btn btn-primary">Edit</button>
 					                </div>
 					                {{ Form::close() }}
 					            </div>
