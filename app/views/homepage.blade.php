@@ -23,15 +23,15 @@
                                     </td>
                                 </tr>
                                 <tr>
-
                                     <td>Date Placed:</td>
                                     <td>
-                                        <input type="text" name="Date_Placed" class="form-control input-medium">
+                                        <input type="text" name="Date_Placed" class="form-control input-medium">(MM/DD/YYYY HH:mm:ss)
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        Plant Stage:</td>
+                                        Plant Stage:
+                                    </td>
                                     <td>
                                         <div class="dropdown">
                                             <select class="btn btn-default dropdown-toggle" name="Plant_Stage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -161,6 +161,9 @@
                         </tr>
                         @endif
                     @endforeach
+                    <tr data-toggle="modal" data-target=".addplant">
+                            <td class="btn-addplant" colspan="8">+ Add Plant</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -188,7 +191,7 @@
                             <img src="img/img{{$plant->ID%2}}.jpg">
                         </div>
                         <div class="small-box-footer">
-                            <p>Plant {{{ $plant->ID }}}</p>
+                            <p>{{{ $plant->Plant_Name }}}</p>
                             <p>{{{ $plant->Plant_Stage }}}</p>
                             <p>{{{ $plant->Date_Placed }}}</p>
                         </div>
