@@ -72,7 +72,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" style="background-color: #339933">Add</button>
+                    <button type="button" id="addPlantBtn" class="btn btn-primary" style="background-color: #339933">Add</button>
                 </div>
             </div>
         </div>
@@ -86,6 +86,18 @@
     <!-- Main content -->
     <div class="container center">
         <div class="row">
+
+
+            <!-- alert component -->
+
+            <div class="alert alert-success addplant-alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Success!</strong> 
+                The plant entry <strong>"Sample Plant 3"</strong> has been successfully added to the database.
+            </div>
+
+            <!-- end alert component -->
+
             <div class="btn-group pull-right">
                 <a class="btn btn-default active" id="list-view"><i class="fa fa-list"></i></a>
                 <a class="btn btn-default" id="grid-view"><i class="fa fa-image"></i></a>
@@ -130,9 +142,9 @@
                             <th>Plant Name</th>
                             <th></th>
                             <th>Date Last Phenotyped</th>
-                            <th>Biomass (cm3)</th>
-                            <th>Greenness</th>
-                            <th>Height</th>
+                            <th>Biomass (cm<sup>3</sup>)</th>
+                            <th>Greenness (LCC)</th>
+                            <th>Height (cm)</th>
                             <th>Tiller Count</th>
                         </tr>
                     </thead>
@@ -187,7 +199,7 @@
             </span>
         </div>
         <div class="row">
-            <div class="grid-view hidden table-bordered-out">
+            <div class="grid-view hidden table-bordered-out col-sm-12">
                 @for ($i = 1; $i
                 <=7 ; $i++) <a href="#" class="col-xs-2 grid-element">
                     <div class="small-box bg-highlight">
@@ -214,9 +226,9 @@
                             <th>Plant Name</th>
                             <th></th>
                             <th>Date Last Phenotyped</th>
-                            <th>Biomass (cm3)</th>
-                            <th>Greenness</th>
-                            <th>Height</th>
+                            <th>Biomass (cm<sup>3</sup>)</th>
+                            <th>Greenness (LCC)</th>
+                            <th>Height (cm)</th>
                             <th>Tiller Count</th>
                         </tr>
                     </thead>
@@ -279,9 +291,11 @@
                             <td>28.14</td>
                             <td>13.22</td>
                         </tr>
+<!--
                         <tr href="#">
                             <td class="btn-viewmore" colspan="9">View More...</td>
                         </tr>
+-->
                     </tbody>
                 </table>
             </div>

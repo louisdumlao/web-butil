@@ -32,7 +32,7 @@
 
     <!-- Scripts are placed here -->
     {{ HTML::script('js/jquery-1.11.1.min.js') }} {{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/butilscript.js') }} {{ HTML::script('js/bootstrap.min.js') }}
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <!--    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
     {{ HTML::script('js/AdminLTE/morris.js') }}
 
     <script>
@@ -102,6 +102,11 @@
                 $('.btn-arch').addClass("disabled");
 
             }
+        });
+
+        $('#addPlantBtn').click(function () {
+            $('.addplant').modal('hide');
+            $('.addplant-alert').css('visibility', 'visible');
         });
     </script>
 
