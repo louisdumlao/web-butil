@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.plantlayout')
 
 @section('navbar')
 <header class="header">
@@ -17,8 +17,8 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<span>
 							<i class="glyphicon glyphicon-camera"></i>
-							October 11, 2014
-							11:30 PM
+                            <?php date_default_timezone_set('Asia/Taipei');?>
+                            {{{ date("F j, Y h:i A", strtotime("now")) }}}
 						</span>
 						
 					</a>
@@ -27,14 +27,17 @@
 						<li>
 							<!-- inner menu: contains the actual data -->
 							<ul class="menu">
+                                @foreach($camera_appointments as $cameraAppointment)
 								<li><!-- start message -->
 									<a href="#">
-										<h4>Saturday,</h4>
-										<h4>October 11, 2014</h4>
-										<h4>11:30<small>PM</small></h4>
-										Repeats every 6 days.
+										<h4>{{{ date("l,", strtotime($cameraAppointment->Date_Taken)) }}}</h4>
+										<h4>{{{ date("F j, Y", strtotime($cameraAppointment->Date_Taken)) }}}</h4>
+										<h4>{{{ date("h:i:s", strtotime($cameraAppointment->Date_Taken)) }}}<small>{{{ date("A", strtotime($cameraAppointment->Date_Taken)) }}}</small></h4>
+                                        @if($cameraAppointment->Interval == 'Daily') Repeats Daily @endif
+                                        @if($cameraAppointment->Interval == 'Weekly') Repeats Weekly @endif										
 									</a>
 								</li><!-- end message -->
+                                @endforeach
 							</ul>
 						</li>
 						<li class="footer"><a data-toggle="modal" data-target=".edit-appointment">Edit Capture Appointment</a></li>
@@ -92,13 +95,31 @@
                         <h3 class="modal-title">Set Capture Appointment</h3>
                     </div>
                     <div class="modal-body">
-                        <form id="editPlantModal" method="POST">
+                        {{ Form::open(array('id'=> 'addAppointmentModal', 'route' => 'addAppointment', 'role' => 'form'))}}
                             <table class="plantinput">
                                 <tbody>
                                     <tr>
                                         <td colspan="3">
-                                            Set the next camera appointment date and frequency:</td>
+                                            Set the next camera appointment date and frequency:
+                                        </td>
+                                    <tr>
                                         <tr>
+                                            <td>Date Placed:</td>
+                                            <td>
+                                                <input type="text" name="Date_Taken" class="form-control input-medium">(MM/DD/YYYY HH:mm:ss)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Interval:</td>
+                                            <td>
+                                                <select class="btn btn-default dropdown-toggle" name="Interval" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                                  <option value="Once">Once</option>
+                                                  <option value="Daily">Daily</option>
+                                                  <option value="Weekly">Weekly</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
                                             <td>
                                                 <div class="dropdown">
                                                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -157,14 +178,14 @@
                                                     </ul>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                 </tbody>
                             </table>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Add</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                <button type="submit" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();" class="btn btn-primary">Add</button>
+                            </div>
+                        {{ Form::close() }}
                     </div>
                 </div>
             </div>

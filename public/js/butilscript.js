@@ -1,12 +1,8 @@
-function changeImage(newImageSource, imageView) {
-    "use strict";
-    var img = document.getElementById("plantImage");
-    if (imageView === "Normal") {
-        img.src = "assets/images/" + newImageSource + ".JPG";
-    } else {
-        img.src = "assets/images/" + newImageSource + "-" + imageView + ".JPG";
-    }
-    return false;
+function changeImage(newImageSource, plantID) {
+	"use strict";
+	var img = document.getElementById(plantID);
+	img.src = '../'+ newImageSource;
+	return false;
 }
 
 function getPlantDetails() {

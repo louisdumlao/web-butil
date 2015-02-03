@@ -2,7 +2,7 @@
 
 class UserController extends BaseController {
 	
-	protected $layout = 'loginlayout';
+	protected $layout = 'layout.loginlayout';
 	
 	public function index() {
 		logout();

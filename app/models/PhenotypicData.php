@@ -5,12 +5,13 @@ class PhenotypicData extends Eloquent {
 	protected $table = 'phenotypic_data';
 	public $timestamps = false;
 	protected $softDelete = true;
+
+	protected $primaryKey = 'ID';
 	
-	//NOTE: Remove 'Plant Type'
 	protected $fillable = array('Image_ID', 'Height', 'Tiller_Count', 'Greenness', 'Diameter', 'Biomass');
 	
 	public function image(){
-		return $this->belongsTo('Image', 'Image_ID');
+		return $this->belongsTo('Image', 'Image_ID', 'ID');
 	}
 	
 }

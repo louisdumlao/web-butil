@@ -36,13 +36,13 @@
     </head>
 
     <body class="skin-blue">
+
 		@yield('navbar')       
         <div class="container">
 			<!-- Content -->
 			@yield('settings')
-			@yield('addPlantModal')
 			@yield('content')
-			@yield('imageModal')
+			
         </div>
 
         <!-- Scripts are placed here -->
