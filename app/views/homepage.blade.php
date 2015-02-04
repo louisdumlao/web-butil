@@ -142,12 +142,19 @@
                             <!--<td><i class="fa fa-pencil fa-hidden" data-toggle="modal" data-target=".addplant"></i>
                             </td>-->
                             <?php $lastImage=Image::where( 'Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first(); ?> @if($lastImage != null)
-                            <?php $lastPheno=PhenotypicData::where( 'Image_ID', $lastImage->ID)->first();?>
+                            <?php $lastPheno=PhenotypicData::where( 'Image_ID', $lastImage->ID)->first();?>@if($lastPheno != null)
                             <td>{{{$lastImage->Date_Taken}}}</td>
                             <td>{{{$lastPheno->Biomass}}}</td>
                             <td>{{{$lastPheno->Greenness}}}</td>
                             <td>{{{$lastPheno->Height}}}</td>
                             <td>{{{$lastPheno->Tiller_Count}}}</td>
+                            @else
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            @endif
                             @else
                             <td></td>
                             <td></td>
@@ -216,18 +223,26 @@
                             <td>
                                 <input type="checkbox" class="archPlantRowSelect">
                             </td>
-                            <td>@if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'L'}}} @elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'R'}}} @endif
+                            <td>
+                            @if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'L'}}} @elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'R'}}} @endif
                             </td>
                             <td>{{{$plant->Plant_Name}}}</td>
                             <!-- <td><i class="fa fa-pencil fa-hidden" data-toggle="modal" data-target=".addplant"></i>
                             </td> -->
                             <?php $lastImage=Image::where( 'Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first(); ?> @if($lastImage != null)
-                            <?php $lastPheno=PhenotypicData::where( 'Image_ID', $lastImage->ID)->first();?>
+                            <?php $lastPheno=PhenotypicData::where( 'Image_ID', $lastImage->ID)->first();?>@if($lastPheno != null)
                             <td>{{{$lastImage->Date_Taken}}}</td>
                             <td>{{{$lastPheno->Biomass}}}</td>
                             <td>{{{$lastPheno->Greenness}}}</td>
                             <td>{{{$lastPheno->Height}}}</td>
                             <td>{{{$lastPheno->Tiller_Count}}}</td>
+                            @else
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            @endif
                             @else
                             <td></td>
                             <td></td>
