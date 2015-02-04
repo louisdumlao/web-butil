@@ -22,32 +22,32 @@ $('#dataTab a').click(function (e) {
 });
 
 $('#biomass-tab').click(function (e) {
-    $('biomass-chart').removeClass("no-display");
-    $('greenness-chart').addClass("no-display");
-    $('height-chart').addClass("no-display");
-    $('tillercount-chart').addClass("no-display");
-}
+    $('#biomass-chart').removeClass("no-display");
+    $('#greenness-chart').addClass("no-display");
+    $('#height-chart').addClass("no-display");
+    $('#tillercount-chart').addClass("no-display");
+});
                         
 $('#greenness-tab').click(function (e) {
-    $('biomass-chart').addClass("no-display");
-    $('greenness-chart').removeClass("no-display");
-    $('height-chart').addClass("no-display");
-    $('tillercount-chart').addClass("no-display");
-}
+    $('#biomass-chart').addClass("no-display");
+    $('#greenness-chart').removeClass("no-display");
+    $('#height-chart').addClass("no-display");
+    $('#tillercount-chart').addClass("no-display");
+});
 
 $('#height-tab').click(function (e) {
-    $('biomass-chart').addClass("no-display");
-    $('greenness-chart').addClass("no-display");
-    $('height-chart').removeClass("no-display");
-    $('tillercount-chart').addClass("no-display");
-}
+    $('#biomass-chart').addClass("no-display");
+    $('#greenness-chart').addClass("no-display");
+    $('#height-chart').removeClass("no-display");
+    $('#tillercount-chart').addClass("no-display");
+});
 
 $('#tillercount-tab').click(function (e) {
-    $('biomass-chart').addClass("no-display");
-    $('greenness-chart').addClass("no-display");
-    $('height-chart').addClass("no-display");
-    $('tillercount-chart').removeClass("no-display");
-}
+    $('#biomass-chart').addClass("no-display");
+    $('#greenness-chart').addClass("no-display");
+    $('#height-chart').addClass("no-display");
+    $('#tillercount-chart').removeClass("no-display");
+});
 
 //phenotypic graph values
 $(function () {
@@ -57,55 +57,55 @@ $(function () {
         data: [
             {
                 y: '2011 Q1',
-                item1: 2666
+                item1: 2666, item2: 3124
             },
             {
                 y: '2011 Q2',
-                item1: 2778
+                item1: 2778, item2: 1523
             },
             {
                 y: '2011 Q3',
-                item1: 4912
+                item1: 4912, item2: 8201
             },
             {
                 y: '2011 Q4',
-                item1: 3767
+                item1: 3767, item2: 1234
             },
             {
                 y: '2012 Q1',
-                item1: 6810
+                item1: 6810, item2: 1237
             },
             {
                 y: '2012 Q2',
-                item1: 5670
+                item1: 5670, item2: 8192
             },
             {
                 y: '2012 Q3',
-                item1: 4820
+                item1: 4820, item2: 15000
             },
             {
                 y: '2012 Q4',
-                item1: 15073
+                item1: 15073, item2: 500
             },
             {
                 y: '2013 Q1',
-                item1: 10687
+                item1: 10687, item2: 8012
             },
             {
                 y: '2013 Q2',
-                item1: 8432
+                item1: 8432, item2: 3124
             }
         ],
         xkey: 'y',
-        ykeys: ['item1'],
-        labels: ['Item 1'],
-        lineColors: ['#5a5'],
+        ykeys: ['item1', 'item2'],
+        labels: ['Item 1', 'Item 2'],
+        lineColors: ['#5a5', '#7c7'],
         lineWidth: 2,
         hideHover: 'auto',
         gridTextColor: "#000",
         gridStrokeWidth: 0.4,
         pointSize: 4,
-        pointStrokeColors: ["#efefef"],
+        pointStrokeColors: ["#efefef", "#efefef"],
         gridLineColor: "#000",
         gridTextFamily: "Open Sans",
         gridTextSize: 10
