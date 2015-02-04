@@ -141,8 +141,8 @@
                             <td>{{{$plant->Plant_Name}}}</td>
                             <!--<td><i class="fa fa-pencil fa-hidden" data-toggle="modal" data-target=".addplant"></i>
                             </td>-->
-                            <?php $lastImage=I mage::where( 'Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first(); ?> @if($lastImage != null)
-                            <?php $lastPheno=P henotypicData::where( 'Image_ID', $lastImage->ID)->first();?>
+                            <?php $lastImage=Image::where( 'Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first(); ?> @if($lastImage != null)
+                            <?php $lastPheno=PhenotypicData::where( 'Image_ID', $lastImage->ID)->first();?>
                             <td>{{{$lastImage->Date_Taken}}}</td>
                             <td>{{{$lastPheno->Biomass}}}</td>
                             <td>{{{$lastPheno->Greenness}}}</td>
@@ -178,9 +178,9 @@
             </span>
         </div>
         <div class="row">
-                    <div class="grid-view hidden table-bordered-out">
-                        @foreach ($plants as $plant) @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() == null)
-                        <a href="plant/{{{$plant->ID}}}" class="col-xs-2 grid-element">
+            <div class="grid-view hidden table-bordered-out">
+                @foreach ($plants as $plant) @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() == null)
+                <a href="plant/{{{$plant->ID}}}" class="col-xs-2 grid-element">
                     <div class="small-box bg-highlight">
                         <div class="inner">
                             <img src="img/img{{$plant->ID%2}}.jpg">
@@ -191,60 +191,58 @@
                             <p>{{{ $plant->Date_Placed }}}</p>
                         </div>
                     </div>
-                    </a>
-                        @endif @endforeach
-                    </div>
-                    <div class="list-view col-sm-12">
-                        <table class="table table-bordered-out table-hover table-condensed table-responsive">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <input type="checkbox" id="archPlantSelectAll">
-                                    </th>
-                                    <th>Camera</th>
-                                    <th>Plant Name</th>
-                                    <!-- <th></th> -->
-                                    <th>Date Last Phenotyped</th>
-                                    <th>Biomass (cm<sup>3</sup>)</th>
-                                    <th>Greenness (LCC)</th>
-                                    <th>Height (cm)</th>
-                                    <th>Tiller Count</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($plants as $plant) @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() == null)
-                                <tr class="clickable-row" data-url="plant/{{{$plant->ID}}}">
-                                    <td>
-                                        <input type="checkbox" class="archPlantRowSelect">
-                                    </td>
-                                    <td>@if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'L'}}} @elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'R'}}} @endif
-                                    </td>
-                                    <td>{{{$plant->Plant_Name}}}</td>
-                                    <!-- <td><i class="fa fa-pencil fa-hidden" data-toggle="modal" data-target=".addplant"></i>
+                </a>
+                @endif @endforeach
+            </div>
+            <div class="list-view col-sm-12">
+                <table class="table table-bordered-out table-hover table-condensed table-responsive">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="archPlantSelectAll">
+                            </th>
+                            <th>Camera</th>
+                            <th>Plant Name</th>
+                            <th>Date Last Phenotyped</th>
+                            <th>Biomass (cm<sup>3</sup>)</th>
+                            <th>Greenness (LCC)</th>
+                            <th>Height (cm)</th>
+                            <th>Tiller Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($plants as $plant) @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() == null)
+                        <tr class="clickable-row" data-url="plant/{{{$plant->ID}}}">
+                            <td>
+                                <input type="checkbox" class="archPlantRowSelect">
+                            </td>
+                            <td>@if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'L'}}} @elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'R'}}} @endif
+                            </td>
+                            <td>{{{$plant->Plant_Name}}}</td>
+                            <!-- <td><i class="fa fa-pencil fa-hidden" data-toggle="modal" data-target=".addplant"></i>
                             </td> -->
-                                    <?php $lastImage=I mage::where( 'Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first(); ?> @if($lastImage != null)
-                                    <?php $lastPheno=P henotypicData::where( 'Image_ID', $lastImage->ID)->first();?>
-                                    <td>{{{$lastImage->Date_Taken}}}</td>
-                                    <td>{{{$lastPheno->Biomass}}}</td>
-                                    <td>{{{$lastPheno->Greenness}}}</td>
-                                    <td>{{{$lastPheno->Height}}}</td>
-                                    <td>{{{$lastPheno->Tiller_Count}}}</td>
-                                    @else
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    @endif
-                                </tr>
-                                @ endif @endforeach
-                                    <tr href="#">
-                                        <td class="btn-viewmore" colspan="9">View More...</td>
-                                    </tr>
-                                    -->
-                            </tbody>
-                        </table>
-                    </div>
+                            <?php $lastImage=Image::where( 'Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first(); ?> @if($lastImage != null)
+                            <?php $lastPheno=PhenotypicData::where( 'Image_ID', $lastImage->ID)->first();?>
+                            <td>{{{$lastImage->Date_Taken}}}</td>
+                            <td>{{{$lastPheno->Biomass}}}</td>
+                            <td>{{{$lastPheno->Greenness}}}</td>
+                            <td>{{{$lastPheno->Height}}}</td>
+                            <td>{{{$lastPheno->Tiller_Count}}}</td>
+                            @else
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            @endif
+                        </tr>
+                        @endif @endforeach
+                        <tr href="#">
+                            <td class="btn-viewmore" colspan="9">View More...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
