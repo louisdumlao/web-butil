@@ -18,20 +18,30 @@ class HomeController extends BaseController {
 	public function index()
 	{
 		
-		$userdata = array(
-				"username" => "Elisha",
-				"password" => "Gonzabebe",
-				"name" => "Elisha Gonzales"
-			);
+		// $userdata = array(
+		// 		"username" => "Elisha",
+		// 		"password" => "Gonzabebe",
+		// 		"name" => "Elisha Gonzales"
+		// 	);
 		
-		if (Session::get('username')!="") {
-			return Redirect::route('user');
-		}
-		else {
-			return Redirect::route('home')->with('username', $userdata['username'])
-				->with('password', $userdata['password'])
-				->with('name', $userdata['name']);
-		}
+		// if (Session::get('username')!="") {
+		// 	return Redirect::route('user');
+		// }
+		// else {
+			// return Redirect::route('home')->with('username', $userdata['username'])
+			// 	->with('password', $userdata['password'])
+			// 	->with('name', $userdata['name']);
+		//}
+
+		return Redirect::route('home');
+	}
+
+	public function home(){
+		$cameras = Camera::all();
+		$plants = Plant::all();
+    	return View::make('homepage')
+    		->withCameras($cameras)
+    		->withPlants($plants);
 	}
 
 }

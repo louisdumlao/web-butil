@@ -4,7 +4,7 @@ class PhenotypicDataTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('phenotypic_data')->delete();
+        
 
         PhenotypicData::create(array(
             'ID' => 1,
@@ -29,7 +29,7 @@ class PhenotypicDataTableSeeder extends Seeder {
         PhenotypicData::create(array(
             'ID' => 3,
             'Image_ID' => 3,
-            'Height' => 10.1,
+            'Height' => 66.333,
             'Tiller_Count' => 11,
             'Greenness' => 3,
             'Diameter' => 7,
@@ -39,7 +39,7 @@ class PhenotypicDataTableSeeder extends Seeder {
         PhenotypicData::create(array(
             'ID' => 4,
             'Image_ID' => 4,
-            'Height' => 10.1,
+            'Height' => 53,
             'Tiller_Count' => 33,
             'Greenness' => 3.5,
             'Diameter' => 1,
@@ -48,7 +48,7 @@ class PhenotypicDataTableSeeder extends Seeder {
 
         PhenotypicData::create(array(
             'ID' => 5,
-            'Image_ID' => 5,
+            'Image_ID' => 123.567,
             'Height' => 10.1,
             'Tiller_Count' => 100,
             'Greenness' => 4,

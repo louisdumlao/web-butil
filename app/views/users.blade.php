@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.plantlayout')
 
 @section('content')
     Users!

@@ -12,16 +12,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						@for ($i = 0; $i < count($plant[1]); $i++)
+						@foreach($plant->images()->get() as $image)
 							<tr>
-								<td><a href="#imageModal" data-toggle="modal" name="plantView">{{ $plant[1][$i]['datetaken'] }}</a></td>
-								<td>{{ $plant[0]['stage'] }}</td>
-								<td>{{ $plant[1][$i]['biomass'] }}</td>
-								<td>{{ $plant[1][$i]['greenness'] }}</td>
-								<td>{{ $plant[1][$i]['height'] }}</td>
-								<td>{{ $plant[1][$i]['tillercount'] }}</td>
+								<td><a href="#imageModal{{{$image->ID}}}" data-toggle="modal" name="plantView">{{{ $image->Date_Taken }}}</a></td>
+								<td>{{{ $image->Plant_Stage }}}</td>
+								<?php $phenotypicData = PhenotypicData::where('Image_ID', $image->ID)->firstOrFail();?>
+								<td>{{{ $phenotypicData->Biomass }}}</td>
+								<td>{{{ $phenotypicData->Greenness }}}</td>
+								<td>{{{ $phenotypicData->Height }}}</td>
+								<td>{{{ $phenotypicData->Tiller_Count }}}</td>
 							</tr>
-						@endfor
+
+						@endforeach
+						
 					</tbody>
 					</table>
 			</div>
