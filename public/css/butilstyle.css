@@ -37,7 +37,7 @@
 .butil-viewopt-button:hover,
 .butil-viewopt-button:focus,
 .butil-viewopt-button:active,
-.butil-viewopt-button.active,{
+.butil-viewopt-button.active{
 	-webkit-box-shadow: 0 0px 0px;
 			box-shadow: 0 0px 0px;
 }
@@ -49,5 +49,4 @@
 .butil-edit-plant:hover {
 	color: #666;
 	cursor: pointer;
-	
 }
