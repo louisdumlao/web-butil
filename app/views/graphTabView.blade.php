@@ -1,5 +1,5 @@
 <!--CSS are placed here -->
-{{ HTML::style('css/bootstrap.css') }} {{ HTML::style('css/bootstrap.min.css') }} {{ HTML::style('css/ionicons.min.css') }} {{ HTML::style('css/AdminLTE.css') }} {{ HTML::style('css/navbar.css') }} {{ HTML::style('css/homepage.css') }} {{ HTML::style('css/font-awesome.min.css') }}
+{{ HTML::style('css/bootstrap.css') }} {{ HTML::style('css/bootstrap.min.css') }} {{ HTML::style('css/ionicons.min.css') }} {{ HTML::style('css/AdminLTE.css') }} {{ HTML::style('css/navbar.css') }} {{ HTML::style('css/homepage.css') }} {{ HTML::style('css/butilstyle.css') }} {{ HTML::style('css/font-awesome.min.css') }}
 
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }} {{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/butilscript.js') }} {{ HTML::script('js/bootstrap.min.js') }} {{ HTML::script('js/raphael.js') }} {{ HTML::script('js/AdminLTE/app.js') }}  {{ HTML::script('js/AdminLTE/demo.js') }} {{ HTML::script('js/AdminLTE/dashboard.js') }} {{ HTML::script('js/AdminLTE/morris.js') }}
