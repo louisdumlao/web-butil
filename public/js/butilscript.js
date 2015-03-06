@@ -115,61 +115,61 @@ $(function () {
         resize: true,
         data: [
             {
-                y: '2011 Q1',
+                y: '2014-01-05',
                 item1: 2666,
                 item2: 3124
             },
             {
-                y: '2011 Q2',
+                y: '2014-01-06',
                 item1: 2778,
                 item2: 1523
             },
             {
-                y: '2011 Q3',
+                y: '2014-01-07',
                 item1: 4912,
                 item2: 8201
             },
             {
-                y: '2011 Q4',
+                y: '2014-01-08',
                 item1: 3767,
                 item2: 1234
             },
             {
-                y: '2012 Q1',
+                y: '2014-01-09',
                 item1: 6810,
                 item2: 1237
             },
             {
-                y: '2012 Q2',
+                y: '2014-01-10',
                 item1: 5670,
                 item2: 8192
             },
             {
-                y: '2012 Q3',
+                y: '2014-01-11',
                 item1: 4820,
                 item2: 15000
             },
             {
-                y: '2012 Q4',
+                y: '2014-01-12',
                 item1: 15073,
                 item2: 500
             },
             {
-                y: '2013 Q1',
+                y: '2014-01-13',
                 item1: 10687,
                 item2: 8012
             },
             {
-                y: '2013 Q2',
+                y: '2014-01-14',
                 item1: 8432,
                 item2: 3124
             }
         ],
         xkey: 'y',
         ykeys: ['item1', 'item2'],
-        labels: ['Item 1', 'Item 2'],
+        labels: ['P1', 'P2'],
         lineColors: ['#5a5', '#7c7'],
-        lineWidth: 2,
+        lineWidth: [4, 2],
         hideHover: 'auto',
         gridTextColor: "#000",
         gridStrokeWidth: 0.4,

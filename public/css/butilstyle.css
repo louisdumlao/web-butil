@@ -1,56 +1,62 @@
 .box {
     border: 0px;
 }
-
 .butil-modal-lg {
-	width: 900px;
+    width: 900px;
 }
-
 .butil-detail {
-	padding-right: 30px;
+    padding-right: 30px;
 }
-
 .butil-header {
-	padding-right: 15px;
+    padding-right: 15px;
 }
-
 .butil-table-detail {
-	border: none;
+    border: none;
 }
-
 .butil-table-detail-data {
-	border-top: 0px !important;
-	text-align: left;
-	padding: 0px !important;
+    border-top: 0px !important;
+    text-align: left;
+    padding: 0px !important;
 }
-
 .butil-table-detail-data-toggle {
-	padding: 5px !important;
+    padding: 5px !important;
 }
-
 .tab-content {
-	border: 1px solid #ddd;
+    border: 1px solid #ddd;
     padding: 10px;
 }
-
 .butil-table-history {
-	border: 1px solid #ccc;
+    border: 1px solid #ccc;
 }
-
 .butil-viewopt-button,
 .butil-viewopt-button:hover,
 .butil-viewopt-button:focus,
 .butil-viewopt-button:active,
-.butil-viewopt-button.active{
-	-webkit-box-shadow: 0 0px 0px;
-			box-shadow: 0 0px 0px;
+.butil-viewopt-button.active {
+    -webkit-box-shadow: 0 0px 0px;
+    box-shadow: 0 0px 0px;
 }
-
 .body {
-	height: 100%;
+    height: 100%;
 }
-
+.butil-edit-plant {
+    font-size: 16px;
+    color: #339933;
+}
 .butil-edit-plant:hover {
-	color: #666;
-	cursor: pointer;
+    color: #5a5;
+    cursor: pointer;
+}
+.nav.nav-pills.nav-stacked > li.active > a,
+.nav.nav-pills.nav-stacked > li.active > a:hover {
+    border-left-color: #339933;
+}
+.nav-tabs>li>a {
+    color: #000;
+}
+.nav-tabs>li>a:hover {
+    color: #555;
+}
+.nav-tabs>li:hover {
+    cursor: pointer;
 }

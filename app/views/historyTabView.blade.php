@@ -1,6 +1,6 @@
       <div class="tab-pane fade active in" id="history" aria-labelledby="history-tab">
-		  <div class="history">
-				<table class="table table-condensed butil-table-history">
+		  <div class="history list-view">
+				<table class="table table-condensed table-bordered-out table-hover table-responsive butil-table-history">
 					<thead>
 						<tr>
 							<th>Date Taken</th>
@@ -13,8 +13,8 @@
 					</thead>
 					<tbody>
 						@foreach($plant->images()->get() as $image)
-							<tr>
-								<td><a href="#imageModal{{{$image->ID}}}" data-toggle="modal" name="plantView">{{{ $image->Date_Taken }}}</a></td>
+							<tr class="clickable-row" data-target="#imageModal{{{$image->ID}}}" data-toggle="modal">
+								<td>{{{ $image->Date_Taken }}}</td>
 								<td>{{{ $image->Plant_Stage }}}</td>
 								<?php $phenotypicData = PhenotypicData::where('Image_ID', $image->ID)->firstOrFail();?>
 								<td>{{{ $phenotypicData->Biomass }}}</td>
