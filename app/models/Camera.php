@@ -8,6 +8,7 @@ class Camera extends Eloquent {
 	protected $primaryKey = 'ID';
 
 	protected $fillable = array('Current_Left_Plant_ID', 'Current_Right_Plant_ID');
+	protected $hidden = array('IP_Address','Username','Password');
 	
 	public function currentLeftPlant(){
 		return $this->belongsTo('Plant', 'Current_Left_Plant_ID');

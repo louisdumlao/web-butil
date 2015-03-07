@@ -48,7 +48,7 @@ class PhenotypicDataTableSeeder extends Seeder {
 
         PhenotypicData::create(array(
             'ID' => 5,
-            'Image_ID' => 123.567,
+            'Image_ID' => 5,
             'Height' => 10.1,
             'Tiller_Count' => 100,
             'Greenness' => 4,
