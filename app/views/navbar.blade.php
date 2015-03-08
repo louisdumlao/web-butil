@@ -23,13 +23,16 @@
                     <ul class="dropdown-menu">
                         <!-- NOTES: add message if there are no scheduled appointments yet
                              Implementation does not work on other pages -->
-                        <li class="header">Next Capture Appointment</li>
+                        <li><h4>Capture Appointment</h4></li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
                                 @foreach($camera_appointments as $cameraAppointment)
                                 <li>
                                     <!-- start message -->
+                                    @if(is_null($cameraAppointment))
+                                    There are no camera appointments yet.
+                                    @else
                                     <a href="#">
                                         <h4>{{{ date("l,", strtotime($cameraAppointment->Date_Taken)) }}}</h4>
                                         <h4>{{{ date("F j, Y", strtotime($cameraAppointment->Date_Taken)) }}}</h4>
@@ -37,11 +40,12 @@
                                         @if($cameraAppointment->Interval == 'Daily') Repeats Daily @endif @if($cameraAppointment->Interval == 'Weekly') Repeats Weekly @endif
                                     </a>
                                 </li>
+                                @endif
                                 <!-- end message -->
                                 @endforeach
                             </ul>
                         </li>
-                        <li class="footer"><a data-toggle="modal" data-target=".edit-appointment">Edit Capture Appointment</a>
+                        <li class="footer"><a data-toggle="modal" data-target=".edit-appointment">Set Capture Appointment</a>
                         </li>
                         <li class="footer"><a data-toggle="modal" data-target=".add-camera">Add New Camera</a>
                         </li>
