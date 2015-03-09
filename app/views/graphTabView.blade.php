@@ -7,7 +7,7 @@
 <div class="nav nav-pills tab-pane fade-in" id="graph" aria-labelledby="graph-tab">
     <div class="box box-info">
         <div class="box-header">
-            <h5 class="box-title">Phenotypic Data</h5>
+            <h5 class="box-title">Phenotype</h5>
         </div>
         <div class="box-body chart-responsive nav-justified inline-block">
             <span class="col-md-2">

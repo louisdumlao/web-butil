@@ -23,16 +23,20 @@
                     <ul class="dropdown-menu">
                         <!-- NOTES: add message if there are no scheduled appointments yet
                              Implementation does not work on other pages -->
-                        <li><h4 class="col-xs-12">Capture Appointment</h4></li>
+                        <li>
+                            <h4 class="col-xs-12">Capture Appointment</h4>
+                        </li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
                                 @foreach($camera_appointments as $cameraAppointment)
                                 <li>
                                     <!-- start message -->
+                                    <!--
                                     @if(is_null($cameraAppointment))
                                     There are no camera appointments yet.
                                     @else
+                                    -->
                                     <a href="#">
                                         <h4>{{{ date("l,", strtotime($cameraAppointment->Date_Taken)) }}}</h4>
                                         <h4>{{{ date("F j, Y", strtotime($cameraAppointment->Date_Taken)) }}}</h4>
