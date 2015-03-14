@@ -127,66 +127,6 @@
                                         </select>
                                     </td>
                                 </tr>
-                                <!-- <tr>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                        2014
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                        @for ($i = 2014; $i <= 2020; $i++)
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
-                                                        </li>
-                                                        @endfor
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                        1
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                       @for ($i = 1; $i <= 12; $i++)
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
-                                                        </li>
-                                                        @endfor
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                        1
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                        @for ($i = 1; $i <= 30; $i++)
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
-                                                        </li>
-                                                        @endfor
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                        Frequency
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Once</a>
-                                                        </li>
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Daily</a>
-                                                        </li>
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Weekly</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr> -->
                     </tbody>
                 </table>
                 <div class="modal-footer">
@@ -207,7 +147,7 @@
                 <h3 class="modal-title">Add A New Camera</h3>
             </div>
             <div class="modal-body">
-                {{ Form::open(array('id'=> 'addAppointmentModal', 'route' => 'addAppointment', 'role' => 'form'))}}
+                {{ Form::open(array('id'=> 'addCameraModal', 'route' => 'addCamera', 'role' => 'form'))}}
                 <table class="plantinput">
                     <tbody>
                         <tr>
@@ -219,7 +159,7 @@
                         <tr>
                             <td>Password:</td>
                             <td>
-                                <input type="text" name="Camera_Password" class="form-control input-medium">
+                                <input type="password" name="Camera_Password" class="form-control input-medium">
                             </td>
                         </tr>
                         <tr>
@@ -228,66 +168,6 @@
                                 <input type="text" name="IP_Address" class="form-control input-medium">(ex. 192.168.1.1)
                             </td>
                         </tr>
-                        <!-- <tr>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                        2014
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                        @for ($i = 2014; $i <= 2020; $i++)
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
-                                                        </li>
-                                                        @endfor
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                        1
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                       @for ($i = 1; $i <= 12; $i++)
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
-                                                        </li>
-                                                        @endfor
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                        1
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                        @for ($i = 1; $i <= 30; $i++)
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{$i}}</a>
-                                                        </li>
-                                                        @endfor
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                                        Frequency
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Once</a>
-                                                        </li>
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Daily</a>
-                                                        </li>
-                                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Weekly</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr> -->
                     </tbody>
                 </table>
                 <div class="modal-footer">

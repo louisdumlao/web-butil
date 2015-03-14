@@ -55,7 +55,7 @@ class PlantController extends BaseController
 		//save model to db
 		$plant = new Plant;
 		$plant->Plant_Name =  Input::get('Plant_Name');
-		$plant->Date_Placed = date("Y-m-d H:i:j", strtotime(Input::get('Date_Placed')));
+		$plant->Date_Placed = date("Y-m-d H:i:s", strtotime(Input::get('Date_Placed')));
 		$plant->Plant_Stage =  Input::get('Plant_Stage');
 		$plant->save();
 
@@ -125,6 +125,18 @@ class PlantController extends BaseController
 			$cameraAppointment->Interval = Input::get('Interval');
 			$cameraAppointment->save();
 		}
+
+		return Redirect::to('/');
+	}
+
+	public function addCamera(){
+		//save model to db
+		$camera = new Camera;
+
+		$camera->Username = Input::get('Camera_Username');
+		$camera->Password = Input::get('Camera_Password');
+		$camera->IP_Address = Input::get('IP_Address');
+		$camera->save();
 
 		return Redirect::to('/');
 	}
