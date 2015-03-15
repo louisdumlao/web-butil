@@ -68,6 +68,10 @@
         $('.clickable-row .checkbox-curr-plant').click(function (e) {
             e.stopPropagation();
         });
+        
+        $('.clickable-row .archPlantRowSelect').click(function (e) {
+            e.stopPropagation();
+        });
 
         $('.clickable-row .fa-pencil').click(function (e) {
             e.stopPropagation();

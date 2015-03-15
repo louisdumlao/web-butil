@@ -1,10 +1,83 @@
 @extends('layouts.homepagelayout') @section('homepage')
 <div class="content">
 
+    <!-- add plant modal -->
+    <div class="addplant modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{ Form::open(array('id'=> 'addPlantModal', 'route' => 'addPlant', 'role' => 'form'))}}
+                <div class="modal-header">
+                    <h3 class="modal-title">Add Plant</h3>
+                </div>
+                <div class="modal-body">
+                    <table class="plantinput">
+                        <tbody>
+                            <tr>
+                                <td>Plant Name:</td>
+                                <td>
+                                    <input type="text" name="Plant_Name" class="form-control input-medium" placeholder="Write plant name here...">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date Placed:</td>
+                                <td>
+                                    <input type="text" name="Date_Placed" class="form-control input-medium">(MM/DD/YYYY HH:mm:ss)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Plant Stage:
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <select class="btn btn-default dropdown-toggle" name="Plant_Stage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                            <option value="Tillering">Tillering</option>
+                                            <option value="Mid-Tillering">Mid-Tillering</option>
+                                            <option value="Flowering">Flowering</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Camera:</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <select class="btn btn-default dropdown-toggle" type="button" name="Camera_ID_Side" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                                            <option value="none">None</option>
+                                            @foreach($cameras as $camera)
+                                            <option value="{{{ $camera->ID }}}L">{{{ $camera->ID }}}L</option>
+                                            <option value="{{{ $camera->ID }}}R">{{{ $camera->ID }}}R</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();" class="btn btn-primary">Add</button>
+                </div>
+                {{ Form::close() }}
+            </div>
+        </div>
+    </div>
+
+    <!-- end add plant modal -->
     <!-- Main content -->
     <div class="container center">
         <div class="row">
 
+
+            <!-- alert component -->
+
+            <div class="alert alert-success addplant-alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Success!</strong> The plant entry <strong>"Sample Plant 3"</strong> has been successfully added to the database.
+            </div>
+
+            <!-- end alert component -->
 
             <div class="btn-group pull-right">
                 <a class="btn btn-default active" id="list-view"><i class="fa fa-list"></i></a>
@@ -106,7 +179,6 @@
             Archived Plants
             </span>
             <span class="btn-group col-sm-6">
-            <a class="btn btn-default disabled btn-arch"><i class="fa fa-arrow-circle-up"></i> Move to Current</a>
             <a class="btn btn-default disabled btn-arch"><i class="fa fa-trash"></i> Delete</a>
             </span>
             </span>

@@ -28,6 +28,12 @@ Route::get('users', function()
 });
 */
 
+Route::get('/viewmore', function()
+{
+	return View::make('archivedPlantsView');
+});
+
+
 Route::get('/', 'HomeController@index');
 Route::get('plant/{plant_id}', array('as' => 'plant', 'uses' => 'PlantController@index'))->where('plant_id', '[0-9]+');
 Route::post('addPlant', array('as' => 'addPlant', 'uses' => 'PlantController@addPlant'));

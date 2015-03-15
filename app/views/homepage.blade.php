@@ -179,7 +179,6 @@
             Archived Plants
             </span>
             <span class="btn-group col-sm-6">
-            <a class="btn btn-default disabled btn-arch"><i class="fa fa-arrow-circle-up"></i> Move to Current</a>
             <a class="btn btn-default disabled btn-arch"><i class="fa fa-trash"></i> Delete</a>
             </span>
             </span>
