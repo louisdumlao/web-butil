@@ -23,7 +23,7 @@
                     <ul class="dropdown-menu">
                         <!-- NOTES: add message if there are no scheduled appointments yet
                              Implementation does not work on other pages -->
-                        <li><h4>Capture Appointment</h4></li>
+                        <li><h4 class="col-xs-12">Capture Appointment</h4></li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
@@ -45,20 +45,19 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li class="footer"><a data-toggle="modal" data-target=".edit-appointment">Set Capture Appointment</a>
+                        <li class="footer"><a data-toggle="modal" data-target=".edit-appointment">Add Capture Appointment</a>
                         </li>
                         <li class="footer"><a data-toggle="modal" data-target=".add-camera">Add New Camera</a>
                         </li>
                     </ul>
                 </li>
                 </li>
-                <li class="dropdown user user-menu">
+                <!--<li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
                         <span>Albert de Luna<i class="caret"></i></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- User image -->
                         <li class="user-header bg-light-blue">
                             <img src="img/img1.jpg" class="img-circle" alt="User Image" />
                             <p>
@@ -66,7 +65,6 @@
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>
-                        <!-- Menu Body -->
                         <li class="user-body">
                             <div class="col-xs-4 text-center">
                                 <a href="#">Followers</a>
@@ -78,7 +76,6 @@
                                 <a href="#">Friends</a>
                             </div>
                         </li>
-                        <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
@@ -88,7 +85,7 @@
                             </div>
                         </li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
         </div>
 
@@ -100,7 +97,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Set Capture Appointment</h3>
+                <h3 class="modal-title">Add Capture Appointment</h3>
             </div>
             <div class="modal-body">
                 {{ Form::open(array('id'=> 'addAppointmentModal', 'route' => 'addAppointment', 'role' => 'form'))}}
