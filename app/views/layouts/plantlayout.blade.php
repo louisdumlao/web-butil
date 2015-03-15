@@ -52,7 +52,7 @@
 		{{ HTML::script('js/jquery-2.1.0.min.js') }}
 		{{ HTML::script('js/bootstrap.min.js') }}
 		{{ HTML::script('js/AdminLTE/app.js') }}
-		 <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        {{ HTML::script('js/raphael.js') }}
 		{{ HTML::script('js/AdminLTE/morris.js') }}
 		<script type="text/javascript">
 	$(function() {
