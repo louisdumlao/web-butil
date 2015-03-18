@@ -1,6 +1,9 @@
 <?php
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Camera extends Eloquent {
+
+	use SoftDeletingTrait;
 
 	protected $table = 'camera';
 	public $timestamps = false;

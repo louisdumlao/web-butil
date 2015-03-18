@@ -1,6 +1,9 @@
 <?php
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Image extends Eloquent {
+
+	use SoftDeletingTrait;
 
 	protected $table = 'image';
 	public $timestamps = false;

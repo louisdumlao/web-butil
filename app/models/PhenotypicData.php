@@ -1,6 +1,9 @@
 <?php
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class PhenotypicData extends Eloquent {
+
+	use SoftDeletingTrait;
 
 	protected $table = 'phenotypic_data';
 	public $timestamps = false;

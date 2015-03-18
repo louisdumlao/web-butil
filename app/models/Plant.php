@@ -1,6 +1,9 @@
 <?php
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Plant extends Eloquent {
+
+	use SoftDeletingTrait;
 
 	protected $table = 'plant';
 	public $timestamps = false;

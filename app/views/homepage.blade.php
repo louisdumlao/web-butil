@@ -84,14 +84,16 @@
                 <a class="btn btn-default" id="grid-view"><i class="fa fa-image"></i></a>
             </div>
         </div>
+
+        {{ Form::open(array('id'=> 'currentPlants', 'route' => 'plantsAction', 'role' => 'form'))}}
         <div class="row">
             <span class="table-header">
                 <span class="col-sm-3 table-header">
                 Current Plants
                 </span>
             <span class="btn-group col-sm-6">
-                <a class="btn btn-default disabled btn-curr"><i class="fa fa-arrow-circle-down"></i> Move to Archive</a>
-                <a class="btn btn-default disabled btn-curr"><i class="fa fa-trash"></i> Delete</a>
+                <input type="submit" name="action" class="btn btn-default disabled btn-curr" value="Move to Archive">
+                <input type="submit" name="action" class="btn btn-default disabled btn-curr" value="Delete">
                 </span>
             </span>
         </div>
@@ -139,7 +141,7 @@
                         @foreach($plants as $plant) @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() != null)
                         <tr class="clickable-row" data-url="plant/{{{$plant->ID}}}">
                             <td>
-                                <input type="checkbox" class="checkbox-curr-plant">
+                                <input type="checkbox" name="plant[{{{$plant->ID}}}]" class="checkbox-curr-plant" value="{{$plant->ID}}">
                             </td>
                             <td>@if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'L'}}} @elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'R'}}} @endif
                             </td>
@@ -177,6 +179,9 @@
             </div>
         </div>
     </div>
+    {{ Form::close() }}
+
+    {{ Form::open(array('id'=> 'archievedPlants', 'route' => 'plantsAction', 'role' => 'form'))}}
     <div class="container center">
         <div class="row">
             <span class="table-header">
@@ -184,7 +189,7 @@
             Archived Plants
             </span>
             <span class="btn-group col-sm-6">
-            <a class="btn btn-default disabled btn-arch"><i class="fa fa-trash"></i> Delete</a>
+            <input type="submit" name="action" class="btn btn-default disabled btn-arch" value="Delete">
             </span>
             </span>
         </div>
@@ -230,7 +235,7 @@
                         @foreach($plants as $plant) @if(Camera::where('Current_Left_Plant_ID','=', $plant->ID)->orWhere('Current_Right_Plant_ID','=', $plant->ID)->first() == null)
                         <tr class="clickable-row" data-url="plant/{{{$plant->ID}}}">
                             <td>
-                                <input type="checkbox" class="archPlantRowSelect">
+                                <input type="checkbox" name="plant[{{{$plant->ID}}}]" class="archPlantRowSelect" value="{{$plant->ID}}">
                             </td>
                             <td>
                             @if(($camera = Camera::where('Current_Left_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'L'}}} @elseif(($camera = Camera::where('Current_Right_Plant_ID','=', $plant->ID)->first()) != null) {{{$camera->ID.'R'}}} @endif
@@ -270,6 +275,7 @@
         </div>
     </div>
 </div>
+{{ Form::close() }}
 <!-- ./wrapper -->
 
 @stop

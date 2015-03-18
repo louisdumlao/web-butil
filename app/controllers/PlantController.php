@@ -140,4 +140,33 @@ class PlantController extends BaseController
 
 		return Redirect::to('/');
 	}
+
+	public function plantsAction(){
+		//save model to db
+		$plants = Input::get('plant');
+		foreach($plants as $plantID){
+			$camera = Camera::where('Current_Left_Plant_ID', $plantID)->first();
+			if($camera != null){
+				$camera->Current_Left_Plant_ID = null;
+				$camera->save();
+			}
+			$camera = Camera::where('Current_Right_Plant_ID', $plantID)->first();
+			if($camera != null){
+				$camera->Current_Right_Plant_ID = null;
+				$camera->save();
+			}
+			
+		}
+		if (Input::get('action') == "Delete") {
+			foreach($plants as $plantID){
+				$plant = Plant::find($plantID);
+				// foreach($plant->images()->get() as $image){
+				// 	$image->phenotypicData()->delete();
+				// }
+				// $plant->images()->delete();
+				$plant->delete();
+			}
+		}
+		return Redirect::to('/');
+	}
 }

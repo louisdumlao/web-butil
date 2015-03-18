@@ -39,6 +39,7 @@ Route::get('plant/{plant_id}', array('as' => 'plant', 'uses' => 'PlantController
 Route::post('addPlant', array('as' => 'addPlant', 'uses' => 'PlantController@addPlant'));
 Route::post('editPlant/{plantId}', array('as' => 'editPlant', 'uses' => 'PlantController@editPlant'))->where('plant_id', '[0-9]+');
 Route::post('addAppointment', array('as' => 'addAppointment', 'uses' => 'PlantController@addAppointment'));
+Route::post('plantsAction', array('as' => 'plantsAction', 'uses' => 'PlantController@plantsAction'));
 Route::post('addCamera', array('as' => 'addCamera', 'uses' => 'PlantController@addCamera'));
 Route::get('logout', array('as' => 'user', 'uses' => 'UserController@index'));
 Route::get('home', array('as' => 'home', 'uses' => 'HomePageController@index'));
