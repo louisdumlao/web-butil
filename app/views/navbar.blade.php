@@ -16,7 +16,11 @@
                         <span>
 							<i class="glyphicon glyphicon-camera"></i>
                             <?php date_default_timezone_set('Asia/Taipei');?>
-                            {{{ date("F j, Y h:i A", strtotime("now")) }}}
+                            @if(!$camera_appointments->isEmpty())
+                            {{{date("F j, Y, h:i:s", strtotime($camera_appointments->first()->Date_Taken))}}}
+                            @else
+                            No Capture Appointment Set
+                            @endif
 						</span>
 
                     </a>

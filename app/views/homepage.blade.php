@@ -101,7 +101,12 @@
                 <a href="plant/{{{$plant->ID}}}" class="col-xs-2 grid-element">
                     <div class="small-box bg-highlight">
                         <div class="inner">
-                            <img src="img/img{{$plant->ID%2}}.jpg">
+                            <?php $lastImage=Image::where( 'Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first(); ?> 
+                            @if($lastImage != null)
+                            <img src="{{{$lastImage->Raw_Path}}}">
+                            @else
+                            <img src="assets/images/default.jpg">
+                            @endif
                         </div>
                         <div class="small-box-footer">
                             <p>{{{ $plant->Plant_Name }}}</p>
@@ -189,7 +194,12 @@
                 <a href="plant/{{{$plant->ID}}}" class="col-xs-2 grid-element">
                     <div class="small-box bg-highlight">
                         <div class="inner">
-                            <img src="img/img{{$plant->ID%2}}.jpg">
+                            <?php $lastImage=Image::where( 'Plant_ID', $plant->ID)->orderBy('Date_Taken','desc')->first(); ?> 
+                            @if($lastImage != null)
+                            <img src="{{{$lastImage->Raw_Path}}}">
+                            @else
+                            <img src="assets/images/default.jpg">
+                            @endif
                         </div>
                         <div class="small-box-footer">
                             <p>{{{ $plant->Plant_Name }}}</p>
