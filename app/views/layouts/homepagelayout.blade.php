@@ -13,7 +13,13 @@
 
 
     <!--CSS are placed here -->
-    {{ HTML::style('css/bootstrap.css') }} {{ HTML::style('css/bootstrap.min.css') }} {{ HTML::style('css/ionicons.min.css') }} {{ HTML::style('css/AdminLTE.css') }} {{ HTML::style('css/navbar.css') }} {{ HTML::style('css/homepage.css') }} {{ HTML::style('css/font-awesome.min.css') }}
+    {{ HTML::style('css/bootstrap.css') }}
+    {{ HTML::style('css/bootstrap.min.css') }}
+    {{ HTML::style('css/ionicons.min.css') }}
+    {{ HTML::style('css/AdminLTE.css') }}
+    {{ HTML::style('css/navbar.css') }}
+    {{ HTML::style('css/homepage.css') }}
+    {{ HTML::style('css/font-awesome.min.css') }}
     <!--{{ HTML::style('css/bootstrap-theme.css') }}-->
     <!--{{ HTML::style('css/datepicker.css') }}
 		{{ HTML::style('css/datepicker3.css') }}-->
@@ -33,7 +39,10 @@
     @yield('homepage')
 
     <!-- Scripts are placed here -->
-    {{ HTML::script('js/jquery-1.11.1.min.js') }} {{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/butilscript.js') }} {{ HTML::script('js/bootstrap.min.js') }}
+    {{ HTML::script('js/jquery-1.11.1.min.js') }}
+    {{ HTML::script('js/jquery-2.1.0.min.js') }} 
+    {{ HTML::script('js/butilscript.js') }} 
+    {{ HTML::script('js/bootstrap.min.js') }}
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     {{ HTML::script('js/AdminLTE/morris.js') }}
 

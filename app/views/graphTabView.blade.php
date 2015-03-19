@@ -2,7 +2,7 @@
 {{ HTML::style('css/bootstrap.min.css') }} {{ HTML::style('css/ionicons.min.css') }} {{ HTML::style('css/AdminLTE.css') }} {{ HTML::style('css/navbar.css') }} {{ HTML::style('css/homepage.css') }} {{ HTML::style('css/butilstyle.css') }} {{ HTML::style('css/font-awesome.min.css') }} {{ HTML::style('css/morris.css') }}
 
 <!-- Scripts are placed here -->
-{{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/jquery-ui-1.10.3.min.js') }} {{ HTML::script('js/bootstrap.min.js') }} {{ HTML::script('js/butilscript.js') }} 
+{{ HTML::script('js/jquery-2.1.0.min.js') }} {{ HTML::script('js/jquery-ui-1.10.3.min.js') }} {{ HTML::script('js/butilscript.js') }} 
 
 <script type="text/javascript">
 //phenotypic graph values

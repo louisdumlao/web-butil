@@ -45,7 +45,7 @@ class PlantController extends BaseController
 		$cameras = Camera::all();
 		$cameraAppointments = CameraAppointment::where('Date_Taken', '>', date("Y-m-d H:i:s", strtotime("now")))->groupBy('Date_Taken')->orderBy("Date_Taken", 'asc')->get();
 
-		$this->layout->navbar = View::make('navbar', $data)->withCameraAppointments($cameraAppointments);
+		$this->layout->navbar = View::make('navbar', $data)->with('camera_appointments',$cameraAppointments);
 		$this->layout->content = View::make('plantView', $data)->withPlant($plant)->withCameras($cameras);
 		$this->layout->imageModal = View::make('modals.imageModal', $data)->withPlant($plant);
 		$this->layout->settings = View::make('settings', $data);
