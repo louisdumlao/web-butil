@@ -11,62 +11,23 @@ $(function () {
         element: 'biomass-chart',
         resize: true,
         data: [
+            <?php
+            $numItems = count($plant);
+            ?>
+            @foreach($plant->images()->get() as $image)
             {
-                y: '2014-01-05',
-                item1: 60,
-                item2: 84
+                y: '{{ $image->Date_Taken }}',
+                <?php $phenotypicData = PhenotypicData::where('Image_ID', $image->ID)->firstOrFail();?>
+                item1: {{{ $phenotypicData->Biomass }}}
             },
-            {
-                y: '2014-01-06',
-                item1: 63,
-                item2: 84
-            },
-            {
-                y: '2014-01-07',
-                item1: 66,
-                item2: 85
-            },
-            {
-                y: '2014-01-08',
-                item1: 70,
-                item2: 91
-            },
-            {
-                y: '2014-01-09',
-                item1: 73,
-                item2: 91
-            },
-            {
-                y: '2014-01-10',
-                item1: 78,
-                item2: 95
-            },
-            {
-                y: '2014-01-11',
-                item1: 82,
-                item2: 101
-            },
-            {
-                y: '2014-01-12',
-                item1: 85,
-                item2: 108
-            },
-            {
-                y: '2014-01-13',
-                item1: 87,
-                item2: 120
-            },
-            {
-                y: '2014-01-14',
-                item1: 90,
-                item2: 130
-            }
+            @endforeach
+            
         ],
         xkey: 'y',
-        ykeys: ['item1', 'item2'],
-        labels: ['P1', 'P2'],
-        lineColors: ['#5a5', '#7c7'],
-        lineWidth: [4, 2],
+        ykeys: ['item1', 'item2', 'item3', 'item4', 'item5'],
+        labels: ['P1','P2','P3','P4','P5'],
+        lineColors: ['#272', '#494', '#6b6', '#9d9','#afa'],
+        lineWidth: [2, 2, 2, 2, 2],
         hideHover: 'auto',
         gridTextColor: "#000",
         gridStrokeWidth: 0.4,
@@ -81,57 +42,28 @@ $(function () {
         element: 'greenness-chart',
         resize: true,
         data: [
+            <?php
+            $numItems = count($plant);
+            $i = 0;
+            ?>
+            @foreach($plant->images()->get() as $image)
             {
-                y: '2011 Q1',
-                item1: 512
+                y: '{{ $image->Date_Taken }}',
+                <?php $phenotypicData = PhenotypicData::where('Image_ID', $image->ID)->firstOrFail();?>
+                item1: {{{ $phenotypicData->Greenness }}}
             },
-            {
-                y: '2011 Q2',
-                item1: 1000
-            },
-            {
-                y: '2011 Q3',
-                item1: 1500
-            },
-            {
-                y: '2011 Q4',
-                item1: 2000
-            },
-            {
-                y: '2012 Q1',
-                item1: 2500
-            },
-            {
-                y: '2012 Q2',
-                item1: 3000
-            },
-            {
-                y: '2012 Q3',
-                item1: 3500
-            },
-            {
-                y: '2012 Q4',
-                item1: 4000
-            },
-            {
-                y: '2013 Q1',
-                item1: 4500
-            },
-            {
-                y: '2013 Q2',
-                item1: 5000
-            }
+            @endforeach
         ],
         xkey: 'y',
-        ykeys: ['item1'],
-        labels: ['Item 1'],
-        lineColors: ['#5a5'],
-        lineWidth: 2,
+        ykeys: ['item1', 'item2', 'item3', 'item4', 'item5'],
+        labels: ['P1','P2','P3','P4','P5'],
+        lineColors: ['#272', '#494', '#6b6', '#9d9','#afa'],
+        lineWidth: [2, 2, 2, 2, 2],
         hideHover: 'auto',
         gridTextColor: "#000",
         gridStrokeWidth: 0.4,
         pointSize: 4,
-        pointStrokeColors: ["#efefef"],
+        pointStrokeColors: ["#efefef", "#efefef"],
         gridLineColor: "#000",
         gridTextFamily: "Open Sans",
         gridTextSize: 10
@@ -141,45 +73,28 @@ $(function () {
         element: 'height-chart',
         resize: true,
         data: [
+            <?php
+            $numItems = count($plant);
+            $i = 0;
+            ?>
+            @foreach($plant->images()->get() as $image)
             {
-                y: '2011 Q1',
-                item1: 2000
+                y: '{{ $image->Date_Taken }}',
+                <?php $phenotypicData = PhenotypicData::where('Image_ID', $image->ID)->firstOrFail();?>
+                item1: {{{ $phenotypicData->Height }}}
             },
-            {
-                y: '2011 Q2',
-                item1: 4000
-            },
-            {
-                y: '2011 Q3',
-                item1: 2000
-            },
-            {
-                y: '2011 Q4',
-                item1: 0
-            },
-            {
-                y: '2012 Q1',
-                item1: 2000
-            },
-            {
-                y: '2012 Q2',
-                item1: 4000
-            },
-            {
-                y: '2012 Q3',
-                item1: 2000
-            }
+            @endforeach
         ],
         xkey: 'y',
-        ykeys: ['item1'],
-        labels: ['Item 1'],
-        lineColors: ['#5a5'],
-        lineWidth: 2,
+        ykeys: ['item1', 'item2', 'item3', 'item4', 'item5'],
+        labels: ['P1','P2','P3','P4','P5'],
+        lineColors: ['#272', '#494', '#6b6', '#9d9','#afa'],
+        lineWidth: [2, 2, 2, 2, 2],
         hideHover: 'auto',
         gridTextColor: "#000",
         gridStrokeWidth: 0.4,
         pointSize: 4,
-        pointStrokeColors: ["#efefef"],
+        pointStrokeColors: ["#efefef", "#efefef"],
         gridLineColor: "#000",
         gridTextFamily: "Open Sans",
         gridTextSize: 10
@@ -189,77 +104,28 @@ $(function () {
         element: 'tillercount-chart',
         resize: true,
         data: [
+            <?php
+            $numItems = count($plant);
+            $i = 0;
+            ?>
+            @foreach($plant->images()->get() as $image)
             {
-                y: '2011 Q1',
-                item1: 2,
-                item2: 1,
-                item3: 2
+                y: '{{ $image->Date_Taken }}',
+                <?php $phenotypicData = PhenotypicData::where('Image_ID', $image->ID)->firstOrFail();?>
+                item1: {{{ $phenotypicData->Tiller_Count }}}
             },
-            {
-                y: '2011 Q2',
-                item1: 5,
-                item2: 4,
-                item3: 3
-            },
-            {
-                y: '2011 Q3',
-                item1: 7,
-                item2: 5,
-                item3: 6
-            },
-            {
-                y: '2011 Q4',
-                item1: 10,
-                item2: 8,
-                item3: 9
-            },
-            {
-                y: '2012 Q1',
-                item1: 11,
-                item2: 11,
-                item3: 13
-            },
-            {
-                y: '2012 Q2',
-                item1: 13,
-                item2: 14,
-                item3: 13
-            },
-            {
-                y: '2012 Q3',
-                item1: 16,
-                item2: 17,
-                item3: 17
-            },
-            {
-                y: '2012 Q4',
-                item1: 18,
-                item2: 19,
-                item3: 20
-            },
-            {
-                y: '2013 Q1',
-                item1: 21,
-                item2: 23,
-                item3: 22
-            },
-            {
-                y: '2013 Q2',
-                item1: 25,
-                item2: 28,
-                item3: 26
-            }
+            @endforeach
         ],
         xkey: 'y',
-        ykeys: ['item1', 'item2', 'item3'],
-        labels: ['Item 1', 'Item 2', 'Item 3'],
-        lineColors: ['#5a5', '#6b6', '#7c7'],
-        lineWidth: 2,
+        ykeys: ['item1', 'item2', 'item3', 'item4', 'item5'],
+        labels: ['P1','P2','P3','P4','P5'],
+        lineColors: ['#272', '#494', '#6b6', '#9d9','#afa'],
+        lineWidth: [2, 2, 2, 2, 2],
         hideHover: 'auto',
         gridTextColor: "#000",
         gridStrokeWidth: 0.4,
         pointSize: 4,
-        pointStrokeColors: ["#efefef"],
+        pointStrokeColors: ["#efefef", "#efefef"],
         gridLineColor: "#000",
         gridTextFamily: "Open Sans",
         gridTextSize: 10
@@ -293,7 +159,7 @@ $(function () {
             <span class="chart col-md-10 no-display" id="tillercount-chart" style="height: 300px; width: 80%"></span>
             <h4>Legend:</h4>
             <div class="col-xs-12" style="background-color: #eee">
-                <span class="col-xs-3" style="color:#5a5; font-weight: 700">IR64-A009-087-120-10</span>  <span class="col-xs-3" style="color: #7c7; font-weight: 700">IR105082-008-39-03-04-10</span>
+                <span class="col-xs-3" style="color:#5a5; font-weight: 700">{{{ $plant->Plant_Name }}}</span>
             </div>
         </div>
         <!-- /.box-body -->
