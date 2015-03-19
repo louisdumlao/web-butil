@@ -109,7 +109,7 @@
                             </td>
                             <tr>
                                 <tr>
-                                    <td>Date Placed:</td>
+                                    <td>Appointment Date:</td>
                                     <td>
                                         <input type="text" name="Date_Taken" class="form-control input-medium">(MM/DD/YYYY HH:mm:ss)
                                     </td>
